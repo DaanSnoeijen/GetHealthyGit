@@ -16,21 +16,17 @@ namespace GetHealthy.Controllers
 
         public IActionResult InvullenVoeding()
         {
-            return View();
-        }
+            Program.productContainer.GetProduct();
 
-        public ActionResult ShowProducts()
-        {
-            DAL dal = new DAL();
-            ProductContainer producten = new ProductContainer();
-            
-            foreach(ProductDTO item in dal.GetProduct())
+            List<ProductViewModel> productList = new List<ProductViewModel>();
+
+            foreach (Product item in Program.productContainer.ProductList)
             {
-                Product prod = new Product(item.naam, item.calorieën, item.totaleVetten, item.verzadigdeVetten, item.koolhydraten, item.suikers, item.eiwitten, item.zouten);
-                producten.ProductList.Add(prod);
+                ProductViewModel product = new ProductViewModel(item.naam, item.calorieën, item.totaleVetten, item.verzadigdeVetten, item.koolhydraten, item.suikers, item.eiwitten, item.zouten);
+                productList.Add(product);
             }
 
-            return View("InvullenVoeding", producten);
+            return View("InvullenVoeding", productList);
         }
     }
 }

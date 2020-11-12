@@ -6,11 +6,14 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using GetHealthy.Controllers;
 
 namespace GetHealthy
 {
-    public class Program
+    class Program
     {
+        public static ProductContainer productContainer = new ProductContainer();
+
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();

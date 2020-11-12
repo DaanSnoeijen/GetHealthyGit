@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Invul pagina";
+    ViewData["Title"] = "InvullenVoeding";
 }
 <h2>Wat heeft u vandaag gegeten?</h2>
 <br />
@@ -7,7 +7,14 @@
     <input type="search" />
     <br />
     <br />
-    <p>(hier komt de lijst van producten)</p>
+    @{ 
+        foreach (GetHealthy.Models.ProductViewModel item in Model)
+        {
+            <input type="checkbox" id="@item.naam">
+            <label for="@item.naam">@item.naam</label>
+        }
+    }
+    <br />
     <select name="hoeveelheid" value="Hoeveelheid">
         <option value="gram">Gram</option>
         <option value="milliliter">Milliliter</option>
