@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Invul pagina";
+}
+<h2>Wat heeft u vandaag gegeten?</h2>
+<br />
+<form>
+    <input type="search" />
+    <br />
+    <br />
+    <p>(hier komt de lijst van producten)</p>
+    <select name="hoeveelheid" value="Hoeveelheid">
+        <option value="gram">Gram</option>
+        <option value="milliliter">Milliliter</option>
+    </select>
+    <br />
+    <br />
+    <input type="button" value="Toevoegen" />
+    <input type="button" value="Zelf toevoegen" />
+    <input type="button" value="Berekenen" onclick="window.location.href = '@Url.Action("Uitkomst", "Berekening")';" />
+</form>

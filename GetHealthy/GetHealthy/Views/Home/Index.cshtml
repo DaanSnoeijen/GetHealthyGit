@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Home Pagina";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welkom</h1><br />
+    <p>Welkom op GetHealthy! 
+    De site voor gezonder leven! 
+    Na het invullen van uw gegevens kunt u invullen wat u heeft gegeten. 
+    Wij berekenen dan voor u wat u het beste kunt eten aan de hand van uw gegevens. 
+    GetHealthy, jou persoonlijke foodcoach!</p><br />
+</div>
+<form align="center">
+    <input type="button" onclick="window.location.href = '@Url.Action("InvullenPersoonlijk", "Invullen")';" value="Vul in" name="vulInKnop" /><br /><br />
+</form>
+<div>
+    <p align="center">
+        GetHealthy is een app die voor u berekent welke voedingswaardes u nog binnen moet krijgen. 
+        Dit betekent bijvoorbeeld, als u veel producten hebt benuttigd die veel zout bevatten, 
+        dat wij u zullen aanraden minder zout in te nemen en producten zal aanbevelen die weinig zout bevatten. 
+        Zo kunt u makkelijk zien of u te veel of te weinig voedingswaardes binnenkrijgt!<br /><br />
+        Klik op “Vul in” om in te vullen wat u vandaag hebt gegeten. Vul eerst gegevens zoals lengte, gewicht en leeftijd in. 
+        Dit zodat wij de uitkomst compleet aan uw leefstijl kunnen aanpassen! Na het invullen van uw gegevens, klik dan op “Volgende”. 
+        Zet de naam van een product in de zoekbalk op de invulpagina. U krijgt dan een lijst van producten te zien met die naam. 
+        Klik het product dat u benuttigd heeft en hoeveel u daarvan heeft benuttigd. 
+        Kunnen wij uw product niet vinden? Druk dan op “zelf invullen” om zelf de voedingswaardes van dat product per 100 gram of per 1 liter in te vullen.<br /><br />
+        Hebt u alle producten ingevoerd? Klik dan op “Berekenen” en het systeem zal voor u berekenen welke voedingswaardes u tekort komt of welke u in overvloed heeft. 
+        Daarnaast krijgt u een lijst van producten voorgesteld om deze voedingswaardes bij te vullen of te compenseren. Zo simpel is het!
+    </p>
+</div>

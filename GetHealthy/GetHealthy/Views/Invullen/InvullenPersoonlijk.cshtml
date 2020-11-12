@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Invul pagina";
+}
+<h2>Invullen van persoonlijke gegevens:</h2>
+<br />
+<h5>Wat is uw geslacht?</h5>
+<form>
+    <input type="radio" name="geslacht" /> Man
+    <input type="radio" name="geslacht" /> Vrouw
+    <input type="radio" name="geslacht" /> Overig
+</form>
+<br />
+<h5>Wat is uw geboortedatum?</h5>
+<form>
+    <input type="date" />
+</form>
+<br />
+<h5>Hoe lang bent u?</h5>
+<form>
+    <input type="number" /> in meter
+</form>
+<br />
+<h5>Wat is uw gewicht?</h5>
+<form>
+    <input type="number" /> in kilogram
+</form>
+<br />
+<h5>Hoeveel uur sport u per week?</h5>
+<form>
+    <input type="number" /> uur per week
+</form>
+<br />
+<h5>Werkt u met uw hoofd of met uw spieren?</h5>
+<form>
+    <input type="radio" name="werk" /> Fysiek
+    <input type="radio" name="werk" /> Mentaal
+</form>
+<br />
+<h5>Bent u veganist? </h5>
+<form>
+    <input type="radio" name="vegan" /> Ja
+    <input type="radio" name="vegan" /> Nee
+    <br />
+    <br />
+    <input type="button" value="Volgende" onclick="window.location.href = '@Url.Action("InvullenVoeding", "Invullen")';" />
+</form>
