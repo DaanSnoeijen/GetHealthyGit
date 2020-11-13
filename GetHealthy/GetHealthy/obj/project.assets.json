@@ -459,11 +459,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Beheerder\\OneDrive - Office 365 Fontys\\Semester 2\\Software redo\\GetHealthy\\GetHealthy\\GetHealthy.csproj",
+      "projectUniqueName": "C:\\Users\\Beheerder\\OneDrive - Office 365 Fontys\\Semester 2\\Software redo\\GetHealthyGit\\GetHealthy\\GetHealthy\\GetHealthy.csproj",
       "projectName": "GetHealthy",
-      "projectPath": "C:\\Users\\Beheerder\\OneDrive - Office 365 Fontys\\Semester 2\\Software redo\\GetHealthy\\GetHealthy\\GetHealthy.csproj",
+      "projectPath": "C:\\Users\\Beheerder\\OneDrive - Office 365 Fontys\\Semester 2\\Software redo\\GetHealthyGit\\GetHealthy\\GetHealthy\\GetHealthy.csproj",
       "packagesPath": "C:\\Users\\Beheerder\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Beheerder\\OneDrive - Office 365 Fontys\\Semester 2\\Software redo\\GetHealthy\\GetHealthy\\obj\\",
+      "outputPath": "C:\\Users\\Beheerder\\OneDrive - Office 365 Fontys\\Semester 2\\Software redo\\GetHealthyGit\\GetHealthy\\GetHealthy\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Beheerder\\AppData\\Roaming\\NuGet\\NuGet.Config",

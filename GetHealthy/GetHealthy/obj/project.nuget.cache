@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BcB6LhF1oaR6GGM1xAuT3tg+Zw+B67liGR2neJvEvqEolekLgHmCS+z0ol+vZlCOxU4EukoXPvYghB6sdTUnLQ==",
+  "dgSpecHash": "FAOnuAxBxVSRVn73L4+d57p6405hQGgrgM7DYv8WTkQvHq8IFMN5Xq5UMxBi3+t8fzTL4gT5oU8N+7tk5YC6xg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Beheerder\\OneDrive - Office 365 Fontys\\Semester 2\\Software redo\\GetHealthy\\GetHealthy\\GetHealthy.csproj",
+  "projectFilePath": "C:\\Users\\Beheerder\\OneDrive - Office 365 Fontys\\Semester 2\\Software redo\\GetHealthyGit\\GetHealthy\\GetHealthy\\GetHealthy.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Beheerder\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Beheerder\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
