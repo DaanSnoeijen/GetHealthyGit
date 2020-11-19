@@ -12,14 +12,6 @@ namespace GetHealthy.Controllers
     {
         public IActionResult InvullenPersoonlijk()
         {
-            string geslacht = HttpContext.Request.Form["geslacht"];
-            string gewicht = HttpContext.Request.Form["gewicht"];
-            string lengte = HttpContext.Request.Form["lengte"];
-            string sportPerWeek = HttpContext.Request.Form["sportPerWeek"];
-            string werk = HttpContext.Request.Form["werk"];
-            string veganist = HttpContext.Request.Form["veganist"];
-            string geboortedatum = HttpContext.Request.Form["geboortedatum"];
-
             return View();
         }
 
