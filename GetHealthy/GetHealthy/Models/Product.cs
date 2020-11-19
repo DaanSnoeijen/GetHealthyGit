@@ -2,7 +2,7 @@
 
 namespace GetHealthy.Controllers
 {
-    class Product
+    public class Product
     {
         public string naam;
         public double calorieën;
