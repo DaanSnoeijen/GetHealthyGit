@@ -4,43 +4,44 @@
 <h2>Invullen van persoonlijke gegevens:</h2>
 <br />
 <h5>Wat is uw geslacht?</h5>
-<form>
-    <input type="radio" name="geslacht" /> Man
-    <input type="radio" name="geslacht" /> Vrouw
-    <input type="radio" name="geslacht" /> Overig
-</form>
 <br />
-<h5>Wat is uw geboortedatum?</h5>
 <form>
-    <input type="date" />
-</form>
-<br />
-<h5>Hoe lang bent u?</h5>
-<form>
-    <input type="number" /> in meter
-</form>
-<br />
-<h5>Wat is uw gewicht?</h5>
-<form>
-    <input type="number" /> in kilogram
-</form>
-<br />
-<h5>Hoeveel uur sport u per week?</h5>
-<form>
-    <input type="number" /> uur per week
-</form>
-<br />
-<h5>Werkt u met uw hoofd of met uw spieren?</h5>
-<form>
-    <input type="radio" name="werk" /> Fysiek
-    <input type="radio" name="werk" /> Mentaal
-</form>
-<br />
-<h5>Bent u veganist? </h5>
-<form>
-    <input type="radio" name="vegan" /> Ja
-    <input type="radio" name="vegan" /> Nee
+    <input type="radio" name="geslacht" value="1" /> Man
+    <input type="radio" name="geslacht" value="0" /> Vrouw
+    <input type="radio" name="geslacht" value="0" /> Overig
     <br />
     <br />
-    <input type="button" value="Volgende" onclick="window.location.href = '@Url.Action("InvullenVoedingPagina", "Invullen")';" />
+    <h5>Wat is uw geboortedatum?</h5>
+    <br />
+    <input type="date" name="geboortedatum" />
+    <br />
+    <br />
+    <h5>Hoe lang bent u?</h5>
+    <br />
+    <input type="number" name="lengte" /> in centimeter
+    <br />
+    <br />
+    <h5>Wat is uw gewicht?</h5>
+    <br />
+    <input type="number" name="gewicht" /> in kilogram
+    <br />
+    <br />
+    <h5>Hoeveel uur sport u per week?</h5>
+    <br />
+    <input type="number" name="sportPerWeek" /> uur per week
+    <br />
+    <br />
+    <h5>Werkt u met uw hoofd of met uw spieren?</h5>
+    <br />
+    <input type="radio" name="werk" value="1" /> Fysiek
+    <input type="radio" name="werk" value="0" /> Mentaal
+    <br />
+    <br />
+    <h5>Bent u veganist? </h5>
+    <br />
+    <input type="radio" name="vegan" value="1" /> Ja
+    <input type="radio" name="vegan" value="0" /> Nee
+    <br />
+    <br />
+    <input type="submit" value="Volgende" onclick="window.location.href = '@Url.Action("InvullenVoedingPagina", "Invullen")';" />
 </form>

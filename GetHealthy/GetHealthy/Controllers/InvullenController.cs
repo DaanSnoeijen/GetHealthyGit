@@ -12,6 +12,19 @@ namespace GetHealthy.Controllers
     {
         public IActionResult InvullenPersoonlijk()
         {
+            if (!HttpContext.Request.Form.Equals(null))
+            {
+                string geslacht = HttpContext.Request.Form["geslacht"];
+                string gewicht = HttpContext.Request.Form["gewicht"];
+                string lengte = HttpContext.Request.Form["lengte"];
+                string sportPerWeek = HttpContext.Request.Form["sportPerWeek"];
+                string werk = HttpContext.Request.Form["werk"];
+                string veganist = HttpContext.Request.Form["veganist"];
+                string geboortedatum = HttpContext.Request.Form["geboortedatum"];
+
+                Program.gebruikerContainer.AddGebruiker(int.Parse(geslacht), int.Parse(gewicht), int.Parse(lengte), DateTime.Parse(geboortedatum), int.Parse(sportPerWeek), bool.Parse(werk), bool.Parse(veganist));
+            }
+
             return View();
         }
 
@@ -26,7 +39,12 @@ namespace GetHealthy.Controllers
                 ProductViewModel product = new ProductViewModel(item.naam, item.calorieën, item.totaleVetten, item.verzadigdeVetten, item.koolhydraten, item.suikers, item.eiwitten, item.zouten);
                 productList.Add(product);
             }
-            return View("InvullenVoeding", productList);
+
+            InvullenVoedingViewModel invullenVoedingViewModel = new InvullenVoedingViewModel();
+            invullenVoedingViewModel.ListA = productList;
+            invullenVoedingViewModel.ListB = Program.productContainer.SelectedProducts;
+
+            return View("InvullenVoeding", invullenVoedingViewModel);
         }
 
         public IActionResult InvullenVoeding()
@@ -50,13 +68,13 @@ namespace GetHealthy.Controllers
                 {
                     Product selectedProduct = new Product(product.naam, product.calorieën, product.totaleVetten, product.verzadigdeVetten, product.koolhydraten, product.suikers, product.eiwitten, product.zouten);
                     selectedProduct.hoeveelheid = double.Parse(hoeveelheidProduct);
-                    Program.productContainer.ProductList.Add(selectedProduct);
+                    Program.productContainer.SelectedProducts.Add(selectedProduct);
                 }
             }
 
             InvullenVoedingViewModel invullenVoedingViewModel = new InvullenVoedingViewModel();
             invullenVoedingViewModel.ListA = productList;
-            invullenVoedingViewModel.ListB = Program.productContainer.ProductList;
+            invullenVoedingViewModel.ListB = Program.productContainer.SelectedProducts;
 
             return View("InvullenVoeding", invullenVoedingViewModel);
         }
