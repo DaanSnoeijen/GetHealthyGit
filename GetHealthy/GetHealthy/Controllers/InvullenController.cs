@@ -12,18 +12,13 @@ namespace GetHealthy.Controllers
     {
         public IActionResult InvullenPersoonlijk()
         {
-            if (!HttpContext.Request.Form.Equals(null))
-            {
-                string geslacht = HttpContext.Request.Form["geslacht"];
-                string gewicht = HttpContext.Request.Form["gewicht"];
-                string lengte = HttpContext.Request.Form["lengte"];
-                string sportPerWeek = HttpContext.Request.Form["sportPerWeek"];
-                string werk = HttpContext.Request.Form["werk"];
-                string veganist = HttpContext.Request.Form["veganist"];
-                string geboortedatum = HttpContext.Request.Form["geboortedatum"];
-
-                Program.gebruikerContainer.AddGebruiker(int.Parse(geslacht), int.Parse(gewicht), int.Parse(lengte), DateTime.Parse(geboortedatum), int.Parse(sportPerWeek), bool.Parse(werk), bool.Parse(veganist));
-            }
+            string geslacht = HttpContext.Request.Form["geslacht"];
+            string gewicht = HttpContext.Request.Form["gewicht"];
+            string lengte = HttpContext.Request.Form["lengte"];
+            string sportPerWeek = HttpContext.Request.Form["sportPerWeek"];
+            string werk = HttpContext.Request.Form["werk"];
+            string veganist = HttpContext.Request.Form["veganist"];
+            string geboortedatum = HttpContext.Request.Form["geboortedatum"];
 
             return View();
         }
