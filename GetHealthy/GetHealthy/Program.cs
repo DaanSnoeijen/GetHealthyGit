@@ -15,6 +15,7 @@ namespace GetHealthy
     {
         public static ProductContainer productContainer = new ProductContainer();
         public static GebruikerContainer gebruikerContainer = new GebruikerContainer();
+        public static UitkomstContainer uitkomstContainer = new UitkomstContainer();
 
         public static void Main(string[] args)
         {

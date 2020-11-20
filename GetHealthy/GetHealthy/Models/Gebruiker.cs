@@ -11,6 +11,7 @@ namespace GetHealthy.Models
         public int gewicht;
         public double lengte;
         public DateTime geboortedatum;
+        public int leeftijd;
         public int sportPerWeek;
         public bool werk;
         public bool vegan;
