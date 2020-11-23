@@ -73,7 +73,6 @@ C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHeal
 C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHealthyGit\GetHealthy\GetHealthy\obj\Debug\netcoreapp3.1\GetHealthy.TagHelpers.input.cache
 C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHealthyGit\GetHealthy\GetHealthy\obj\Debug\netcoreapp3.1\GetHealthy.TagHelpers.output.cache
 C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHealthyGit\GetHealthy\GetHealthy\obj\Debug\netcoreapp3.1\GetHealthy.RazorCoreGenerate.cache
-C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHealthyGit\GetHealthy\GetHealthy\obj\Debug\netcoreapp3.1\Razor\Views\Berekening\Uitkomst.cshtml.g.cs
 C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHealthyGit\GetHealthy\GetHealthy\obj\Debug\netcoreapp3.1\Razor\Views\Home\About.cshtml.g.cs
 C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHealthyGit\GetHealthy\GetHealthy\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHealthyGit\GetHealthy\GetHealthy\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
@@ -94,3 +93,4 @@ C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHeal
 C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHealthyGit\GetHealthy\GetHealthy\obj\Debug\netcoreapp3.1\GetHealthy.pdb
 C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHealthyGit\GetHealthy\GetHealthy\obj\Debug\netcoreapp3.1\GetHealthy.genruntimeconfig.cache
 C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHealthyGit\GetHealthy\GetHealthy\obj\Debug\netcoreapp3.1\Razor\Views\Invullen\InvullenPersoonlijk.cshtml.g.cs
+C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHealthyGit\GetHealthy\GetHealthy\obj\Debug\netcoreapp3.1\Razor\Views\Uitkomst\Uitkomst.cshtml.g.cs

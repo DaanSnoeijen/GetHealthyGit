@@ -7,10 +7,15 @@ using GetHealthy.Containers;
 
 namespace GetHealthy.Controllers
 {
-    public class BerekeningController : Controller
+    public class UitkomstController : Controller
     {
         public IActionResult Uitkomst()
         {
+            //Dummy gebruiker
+            DateTime date = new DateTime(2002, 9, 1);
+            Program.gebruikerContainer.AddGebruiker(1, 65, 190, date.Date, 2, true, false);
+            //Einde dummy gebruiker
+
             Bereken();
 
             return View();
@@ -21,6 +26,7 @@ namespace GetHealthy.Controllers
 
         public void Bereken()
         {
+            //Bereken of gebruiker actief is
             if (gc.GebruikerList[0].werk == true)
             {
                 gc.GebruikerList[0].activiteit = true;
@@ -30,6 +36,11 @@ namespace GetHealthy.Controllers
                 gc.GebruikerList[0].activiteit = true;
             }
 
+            //Bereken leeftijd
+            var today = DateTime.Today;
+            gc.GebruikerList[0].leeftijd = today.Year - gc.GebruikerList[0].geboortedatum.Year;
+
+            //Bereken voedingswaardes en BMI
             BerekenBMI();
             BerekenCalorieën();
             BerekenTotaleVetten();
@@ -40,6 +51,7 @@ namespace GetHealthy.Controllers
             BerekenZouten();
         }
 
+        //BMI bepaald of persoon moet afvallen of aankomen
         public void BerekenBMI()
         {
             double meterLengte = gc.GebruikerList[0].lengte / 100 * 2;
