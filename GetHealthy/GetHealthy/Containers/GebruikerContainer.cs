@@ -6,7 +6,7 @@ using GetHealthy.Models;
 
 namespace GetHealthy.Containers
 {
-    class GebruikerContainer
+    public class GebruikerContainer
     {
         public List<Gebruiker> GebruikerList = new List<Gebruiker>();
 

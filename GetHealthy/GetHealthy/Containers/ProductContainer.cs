@@ -4,7 +4,7 @@ using GetHealthy.Models;
 
 namespace GetHealthy.Controllers
 {
-    class ProductContainer
+    public class ProductContainer
     {
         public List<Product> ProductList = new List<Product>();
         public List<Product> SelectedProducts = new List<Product>();

@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using GetHealthy;
 
 namespace UnitTestGetHealthy
 {
@@ -7,9 +8,11 @@ namespace UnitTestGetHealthy
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestVoedingswaardes()
         {
-            //Arange
+            //Arrange
+            GetHealthy.Containers.GebruikerContainer gebruikerContainer = new GetHealthy.Containers.GebruikerContainer();
+            GetHealthy.Containers.InvoerContainer invoerContainer = new GetHealthy.Containers.InvoerContainer();
 
             //Act
 

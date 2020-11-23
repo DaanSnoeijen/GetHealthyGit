@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace GetHealthy.Models
 {
-    class Gebruiker
+    public class Gebruiker
     {
         public int geslacht;
         public int gewicht;
