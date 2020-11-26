@@ -11,12 +11,21 @@ namespace UnitTestGetHealthy
         public void TestVoedingswaardes()
         {
             //Arrange
-            GetHealthy.Containers.GebruikerContainer gebruikerContainer = new GetHealthy.Containers.GebruikerContainer();
-            GetHealthy.Containers.InvoerContainer invoerContainer = new GetHealthy.Containers.InvoerContainer();
+            DateTime date = new DateTime(2002, 9, 1);
+            Program.gebruikerContainer.AddGebruiker(1, 65, 190, date.Date, 2, true, false);
 
             //Act
+            Program.berekenController.Bereken();
 
             //Assert
+            Assert.IsFalse(Program.uitkomstContainer.UitkomstList[0].maximaleCalorieën > 2500 && Program.uitkomstContainer.UitkomstList[0].maximaleCalorieën < 1500);
+            Assert.IsFalse(Program.uitkomstContainer.UitkomstList[0].minimaleCalorieën > 1500 && Program.uitkomstContainer.UitkomstList[0].minimaleCalorieën < 500);
+        }
+
+        [TestMethod]
+        public void test()
+        {
+
         }
     }
 }

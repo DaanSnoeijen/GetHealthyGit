@@ -39,14 +39,14 @@ namespace GetHealthy.Controllers
         }
 
         //BMI bepaald of persoon moet afvallen of aankomen
-        public void BerekenBMI()
+        private void BerekenBMI()
         {
             double meterLengte = gc.GebruikerList[0].lengte / 100 * 2;
 
             gc.GebruikerList[0].BMI = gc.GebruikerList[0].gewicht / meterLengte;
         }
 
-        public void BerekenCalorieën()
+        private void BerekenCalorieën()
         {
             uc.AddUitkomst();
 
@@ -73,31 +73,31 @@ namespace GetHealthy.Controllers
             }
         }
 
-        public void BerekenTotaleVetten()
+        private void BerekenTotaleVetten()
         {
             uc.UitkomstList[0].maximaleTotaleVetten = uc.UitkomstList[0].maximaleCalorieën / 100 * 40 / 9;
             uc.UitkomstList[0].minimaleTotaleVetten = uc.UitkomstList[0].minimaleCalorieën / 100 * 20 / 9;
         }
 
-        public void BerekenVerzadigdeVetten()
+        private void BerekenVerzadigdeVetten()
         {
             uc.UitkomstList[0].maximaleVerzagdigdeVetten = uc.UitkomstList[0].maximaleCalorieën / 10 / 9;
             uc.UitkomstList[0].minimaleVerzagdigdeVetten = 0;
         }
 
-        public void BerekenKoolhydraten()
+        private void BerekenKoolhydraten()
         {
             uc.UitkomstList[0].maximaleKoolhydraten = uc.UitkomstList[0].maximaleCalorieën / 100 * 70 / 4;
             uc.UitkomstList[0].minimaleKoolhydraten = uc.UitkomstList[0].minimaleCalorieën / 100 * 40 / 4;
         }
 
-        public void BerekenSuikers()
+        private void BerekenSuikers()
         {
             uc.UitkomstList[0].maximaleSuikers = 90;
             uc.UitkomstList[0].minimaleSuikers = 0;
         }
 
-        public void BerekenEiwitten()
+        private void BerekenEiwitten()
         {
             double maxGetal = 0.5;
             double minGetal = 0.5;
@@ -131,7 +131,7 @@ namespace GetHealthy.Controllers
             }
         }
 
-        public void BerekenZouten()
+        private void BerekenZouten()
         {
             if (gc.GebruikerList[0].leeftijd <= 3)
             {

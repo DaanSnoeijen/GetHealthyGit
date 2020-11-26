@@ -63,7 +63,6 @@ C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHeal
 C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHealthyGit\GetHealthy\GetHealthy\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHealthyGit\GetHealthy\GetHealthy\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHealthyGit\GetHealthy\GetHealthy\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHealthyGit\GetHealthy\GetHealthy\obj\Debug\netcoreapp3.1\GetHealthy.csprojAssemblyReference.cache
 C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHealthyGit\GetHealthy\GetHealthy\obj\Debug\netcoreapp3.1\GetHealthy.AssemblyInfoInputs.cache
 C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHealthyGit\GetHealthy\GetHealthy\obj\Debug\netcoreapp3.1\GetHealthy.AssemblyInfo.cs
 C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHealthyGit\GetHealthy\GetHealthy\obj\Debug\netcoreapp3.1\GetHealthy.csproj.CoreCompileInputs.cache

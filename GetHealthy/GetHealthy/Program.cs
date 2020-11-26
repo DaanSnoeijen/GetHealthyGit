@@ -11,13 +11,14 @@ using GetHealthy.Containers;
 
 namespace GetHealthy
 {
-    class Program
+    public class Program
     {
         public static ProductContainer productContainer = new ProductContainer();
         public static GebruikerContainer gebruikerContainer = new GebruikerContainer();
         public static UitkomstContainer uitkomstContainer = new UitkomstContainer();
         public static InvoerContainer invoerContainer = new InvoerContainer();
         public static BerekenController berekenController = new BerekenController();
+        public static ProductController productController = new ProductController();
 
         public static void Main(string[] args)
         {

@@ -18,17 +18,10 @@ namespace GetHealthy.Controllers
         public IActionResult InvullenVoedingPagina()
         {
             Program.productContainer.GetProduct();
-
-            List<ProductViewModel> productList = new List<ProductViewModel>();
-
-            foreach (Product item in Program.productContainer.ProductList)
-            {
-                ProductViewModel product = new ProductViewModel(item.naam, item.calorieën, item.totaleVetten, item.verzadigdeVetten, item.koolhydraten, item.suikers, item.eiwitten, item.zouten);
-                productList.Add(product);
-            }
+            Program.productController.ConvertToViewModel();
 
             InvullenVoedingViewModel invullenVoedingViewModel = new InvullenVoedingViewModel();
-            invullenVoedingViewModel.ListA = productList;
+            invullenVoedingViewModel.ListA = Program.productController.productList;
             invullenVoedingViewModel.ListB = Program.productContainer.SelectedProducts;
 
             return View("InvullenVoeding", invullenVoedingViewModel);
