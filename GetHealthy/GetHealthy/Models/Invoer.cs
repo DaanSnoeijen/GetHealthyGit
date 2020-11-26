@@ -9,7 +9,7 @@ namespace GetHealthy.Models
     {
         public double calorieën;
         public double totaleVetten;
-        public double verzagdigdeVetten;
+        public double verzadigdeVetten;
         public double koolhydraten;
         public double suikers;
         public double eiwitten;
@@ -19,7 +19,7 @@ namespace GetHealthy.Models
         {
             calorieën = Calorieën;
             totaleVetten = TotaleVetten;
-            verzagdigdeVetten = VerzadigdeVetten;
+            verzadigdeVetten = VerzadigdeVetten;
             koolhydraten = Koolhydraten;
             suikers = Suikers;
             eiwitten = Eiwitten;

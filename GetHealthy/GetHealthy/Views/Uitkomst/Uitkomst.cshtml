@@ -5,13 +5,37 @@
     Op basis van de ingevulde gegevens hebben we dit voor u kunnen berekenen. 
     Hier is makkelijk te zien of u te veel of te weinig voedingsstoffen binnenkrijgt. 
     Daarnaast hebben wij een lijst met producten voor u samengesteld die u kun consumeren om bepaalde stoffen bij te vullen of in evenwicht te brengen!</h5>
+<br />
 <form>
-    Calorieën:<br />
-    Totale vetten:<br />
-    Verzadigde vetten:<br />
-    Koolhydraten:<br />
-    Suikers:<br />
-    Eiwitten:<br />
-    Zout:<br />
+    @{
+        <a>Uw maximale calorie inname: @Model.maximaleCalorieën.</a><br />
+        <a>Uw minimale calorie inname: @Model.minimaleCalorieën.</a><br />
+        <a>Uw calorie inname: @Model.invoer.calorieën.</a><br />
+        <br />
+        <a>Uw maximale totale vet inname: @Model.maximaleTotaleVetten.</a><br />
+        <a>Uw minimale totale vet inname: @Model.minimaleTotaleVetten.</a><br />
+        <a>Uw totale vet inname: @Model.invoer.totaleVetten.</a><br />
+        <br />
+        <a>Uw maximale verzadigde vet inname: @Model.maximaleVerzadigdeVetten.</a><br />
+        <a>Verzadigde vetten zijn best slecht voor je, hiervoor is dus geen minimale waarde.</a><br />
+        <a>Uw verdadigde vet inname: @Model.invoer.verzadigdeVetten.</a><br />
+        <br />
+        <a>Uw maximale koolhydraat inname: @Model.maximaleKoolhydraten.</a><br />
+        <a>Uw minimale koolhydraat inname: @Model.minimaleKoolhydraten.</a><br />
+        <a>Uw koolhydraat inname: @Model.invoer.koolhydraten.</a><br />
+        <br />
+        <a>Uw maximale suiker inname: @Model.maximaleSuikers.</a><br />
+        <a>Ook suikers zijn slecht voor je, ook hiervoor is dus geen minimale waarde.</a><br />
+        <a>Uw suiker inname: @Model.invoer.suikers.</a><br />
+        <br />
+        <a>Uw maximale eiwit inname: @Model.maximaleEiwitten.</a><br />
+        <a>Uw minimale eiwit inname: @Model.minimaleEiwitten.</a><br />
+        <a>Uw eiwit inname: @Model.invoer.eiwitten.</a><br />
+        <br />
+        <a>Uw maximale zout inname: @Model.maximaleZouten.</a><br />
+        <a>Uw minimale zout inname: @Model.minimaleZouten.</a><br />
+        <a>Uw zout inname: @Model.invoer.zouten.</a><br />
+        <br />
+    }
     <input type="button" value="Home" onclick="window.location.href = '@Url.Action("Index", "Home")';" />
 </form>

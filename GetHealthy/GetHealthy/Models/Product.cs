@@ -26,6 +26,60 @@ namespace GetHealthy.Controllers
             zouten = Zouten;
         }
 
+        public void BerekenHoeveelheid()
+        {
+            double hoeveelheidVermenigvuldig;
+
+            if (hoeveelheid == 1)
+            {
+                hoeveelheidVermenigvuldig = 5;
+
+                calorieën *= hoeveelheidVermenigvuldig;
+                totaleVetten *= hoeveelheidVermenigvuldig;
+                verzadigdeVetten *= hoeveelheidVermenigvuldig;
+                koolhydraten *= hoeveelheidVermenigvuldig;
+                suikers *= hoeveelheidVermenigvuldig;
+                eiwitten *= hoeveelheidVermenigvuldig;
+                zouten *= hoeveelheidVermenigvuldig;
+            }
+            else if (hoeveelheid == 2)
+            {
+                hoeveelheidVermenigvuldig = 2.5;
+
+                calorieën *= hoeveelheidVermenigvuldig;
+                totaleVetten *= hoeveelheidVermenigvuldig;
+                verzadigdeVetten *= hoeveelheidVermenigvuldig;
+                koolhydraten *= hoeveelheidVermenigvuldig;
+                suikers *= hoeveelheidVermenigvuldig;
+                eiwitten *= hoeveelheidVermenigvuldig;
+                zouten *= hoeveelheidVermenigvuldig;
+            }
+            else if (hoeveelheid == 4)
+            {
+                hoeveelheidVermenigvuldig = 0.5;
+
+                calorieën *= hoeveelheidVermenigvuldig;
+                totaleVetten *= hoeveelheidVermenigvuldig;
+                verzadigdeVetten *= hoeveelheidVermenigvuldig;
+                koolhydraten *= hoeveelheidVermenigvuldig;
+                suikers *= hoeveelheidVermenigvuldig;
+                eiwitten *= hoeveelheidVermenigvuldig;
+                zouten *= hoeveelheidVermenigvuldig;
+            }
+            else if (hoeveelheid == 5)
+            {
+                hoeveelheidVermenigvuldig = 0.1;
+
+                calorieën *= hoeveelheidVermenigvuldig;
+                totaleVetten *= hoeveelheidVermenigvuldig;
+                verzadigdeVetten *= hoeveelheidVermenigvuldig;
+                koolhydraten *= hoeveelheidVermenigvuldig;
+                suikers *= hoeveelheidVermenigvuldig;
+                eiwitten *= hoeveelheidVermenigvuldig;
+                zouten *= hoeveelheidVermenigvuldig;
+            }
+        }
+
         public override string ToString()
         {
             return naam + ", calorieën: " +

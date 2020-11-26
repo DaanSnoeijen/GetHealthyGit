@@ -55,6 +55,7 @@ namespace GetHealthy.Controllers
                 {
                     Product selectedProduct = new Product(product.naam, product.calorieën, product.totaleVetten, product.verzadigdeVetten, product.koolhydraten, product.suikers, product.eiwitten, product.zouten);
                     selectedProduct.hoeveelheid = double.Parse(hoeveelheidProduct);
+                    selectedProduct.BerekenHoeveelheid();
                     Program.productContainer.SelectedProducts.Add(selectedProduct);
                 }
             }
