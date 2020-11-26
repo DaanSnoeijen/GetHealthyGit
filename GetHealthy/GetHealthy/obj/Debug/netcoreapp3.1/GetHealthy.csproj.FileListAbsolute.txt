@@ -93,3 +93,4 @@ C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHeal
 C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHealthyGit\GetHealthy\GetHealthy\obj\Debug\netcoreapp3.1\GetHealthy.genruntimeconfig.cache
 C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHealthyGit\GetHealthy\GetHealthy\obj\Debug\netcoreapp3.1\Razor\Views\Invullen\InvullenPersoonlijk.cshtml.g.cs
 C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHealthyGit\GetHealthy\GetHealthy\obj\Debug\netcoreapp3.1\Razor\Views\Uitkomst\Uitkomst.cshtml.g.cs
+C:\Users\Beheerder\OneDrive - Office 365 Fontys\Semester 2\Software redo\GetHealthyGit\GetHealthy\GetHealthy\obj\Debug\netcoreapp3.1\GetHealthy.csprojAssemblyReference.cache
