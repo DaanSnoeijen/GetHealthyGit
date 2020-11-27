@@ -13,8 +13,11 @@ namespace GetHealthy.Controllers
         public IActionResult Uitkomst()
         {
             //Dummy gebruiker
-            DateTime date = new DateTime(2002, 9, 1);
-            Program.gebruikerContainer.AddGebruiker(1, 65, 190, date.Date, 2, true, false);
+            if (Program.gebruikerContainer.GebruikerList.Count == 0)
+            {
+                DateTime date = new DateTime(2002, 9, 1);
+                Program.gebruikerContainer.AddGebruiker(1, 65, 190, date.Date, 2, true, false);
+            }
             //Einde dummy gebruiker
 
             double calorieën = 0;

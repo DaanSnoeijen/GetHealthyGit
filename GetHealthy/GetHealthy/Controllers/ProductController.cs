@@ -12,6 +12,8 @@ namespace GetHealthy.Controllers
 
         public void ConvertToViewModel()
         {
+            productList.Clear();
+
             foreach (Product item in Program.productContainer.ProductList)
             {
                 ProductViewModel product = new ProductViewModel(item.naam, item.calorieën, item.totaleVetten, item.verzadigdeVetten, item.koolhydraten, item.suikers, item.eiwitten, item.zouten);
