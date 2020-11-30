@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GetHealthy.DTO;
 
-namespace GetHealthy.Models
+namespace GetHealthy.Interfaces
 {
-    interface IProduct
+    interface IInvoer
     {
-        public List<ProductDTO> GetProduct();
+        public void StoreInvoer();
     }
 }

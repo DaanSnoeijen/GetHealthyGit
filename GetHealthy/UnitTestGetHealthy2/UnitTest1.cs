@@ -109,5 +109,15 @@ namespace UnitTestGetHealthy2
             Assert.IsTrue(Program.uitkomstContainer.UitkomstList[0].maximaleZouten < 9 && Program.uitkomstContainer.UitkomstList[0].maximaleZouten > 0);
             Assert.IsTrue(Program.uitkomstContainer.UitkomstList[0].minimaleZouten < 9 && Program.uitkomstContainer.UitkomstList[0].minimaleZouten > 0);
         }
+
+        [TestMethod]
+        public void TestInvoerToDatabase()
+        {
+            //Act
+            Program.invoerContainer.AddInvoer(2000, 50, 10, 50, 15, 35, 2);
+
+            //Assert
+            Assert.IsTrue(Program.invoerContainer.InvoerList.Count == 1);
+        }
     }
 }

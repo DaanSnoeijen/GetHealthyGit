@@ -11,11 +11,11 @@ namespace GetHealthy.Controllers
 
         public void GetProduct()
         {
-            DAL dal = new DAL();
+            IProduct iProduct = new ProductenDAL();
 
             ProductList.Clear();
 
-            foreach (ProductDTO item in dal.GetProduct())
+            foreach (ProductDTO item in iProduct.GetProduct())
             {
                 Product prod = new Product(item.naam, item.calorieën, item.totaleVetten, item.verzadigdeVetten, item.koolhydraten, item.suikers, item.eiwitten, item.zouten);
                 ProductList.Add(prod);
