@@ -11,8 +11,8 @@ namespace GetHealthy.Models
         public int minimaleCalorieën;
         public int maximaleTotaleVetten;
         public int minimaleTotaleVetten;
-        public int maximaleVerzagdigdeVetten;
-        public int minimaleVerzagdigdeVetten;
+        public int maximaleVerzadigdeVetten;
+        public int minimaleVerzadigdeVetten;
         public int maximaleKoolhydraten;
         public int minimaleKoolhydraten;
         public int maximaleSuikers;

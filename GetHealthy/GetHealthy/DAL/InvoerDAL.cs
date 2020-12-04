@@ -19,7 +19,7 @@ namespace GetHealthy.DAL
         {
             connection = new SqlConnection(connetionString);
 
-            InvoerDTO invoerDTO = new InvoerDTO(
+            InvoerDTO dto = new InvoerDTO(
                 Program.invoerContainer.InvoerList[0].calorieën,
                 Program.invoerContainer.InvoerList[0].totaleVetten,
                 Program.invoerContainer.InvoerList[0].verzadigdeVetten,
@@ -35,22 +35,14 @@ namespace GetHealthy.DAL
             connection.Open();
             cmd = new SqlCommand(addInvoer, connection);
 
-            cmd.Parameters.AddWithValue("@calorieën", SqlDbType.Float);
-            cmd.Parameters["@calorieën"].Value = invoerDTO.calorieën;
-            cmd.Parameters.AddWithValue("@totaleVetten", SqlDbType.Float);
-            cmd.Parameters["@totaleVetten"].Value = invoerDTO.totaleVetten;
-            cmd.Parameters.AddWithValue("@verzadigdeVetten", SqlDbType.Float);
-            cmd.Parameters["@verzadigdeVetten"].Value = invoerDTO.verzadigdeVetten;
-            cmd.Parameters.AddWithValue("@koolhydraten", SqlDbType.Float);
-            cmd.Parameters["@koolhydraten"].Value = invoerDTO.koolhydraten;
-            cmd.Parameters.AddWithValue("@suikers", SqlDbType.Float);
-            cmd.Parameters["@suikers"].Value = invoerDTO.suikers;
-            cmd.Parameters.AddWithValue("@eiwitten", SqlDbType.Float);
-            cmd.Parameters["@eiwitten"].Value = invoerDTO.eiwitten;
-            cmd.Parameters.AddWithValue("@zouten", SqlDbType.Float);
-            cmd.Parameters["@zouten"].Value = invoerDTO.zouten;
-            cmd.Parameters.AddWithValue("@today", SqlDbType.DateTime);
-            cmd.Parameters["@today"].Value = invoerDTO.today.Date;
+            cmd.Parameters.AddWithValue("@calorieën", dto.calorieën);
+            cmd.Parameters.AddWithValue("@totaleVetten", dto.totaleVetten);
+            cmd.Parameters.AddWithValue("@verzadigdeVetten", dto.verzadigdeVetten);
+            cmd.Parameters.AddWithValue("@koolhydraten", dto.koolhydraten);
+            cmd.Parameters.AddWithValue("@suikers", dto.suikers);
+            cmd.Parameters.AddWithValue("@eiwitten", dto.eiwitten);
+            cmd.Parameters.AddWithValue("@zouten", dto.zouten);
+            cmd.Parameters.AddWithValue("@today", dto.today.Date);
 
             cmd.ExecuteNonQuery();
             connection.Close();

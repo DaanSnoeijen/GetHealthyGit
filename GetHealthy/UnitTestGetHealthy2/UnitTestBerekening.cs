@@ -2,10 +2,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using GetHealthy;
 using System;
 
-namespace UnitTestGetHealthy2
+namespace UnitTestGetHealthy
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTestBerekening
     {
         [TestMethod]
         public void TestCalorieën()
@@ -48,7 +48,7 @@ namespace UnitTestGetHealthy2
             Program.berekenController.Bereken();
 
             //Assert
-            Assert.IsTrue(Program.uitkomstContainer.UitkomstList[0].maximaleVerzagdigdeVetten < 100 && Program.uitkomstContainer.UitkomstList[0].maximaleVerzagdigdeVetten > 0);
+            Assert.IsTrue(Program.uitkomstContainer.UitkomstList[0].maximaleVerzadigdeVetten < 100 && Program.uitkomstContainer.UitkomstList[0].maximaleVerzadigdeVetten > 0);
         }
 
         [TestMethod]
@@ -108,16 +108,6 @@ namespace UnitTestGetHealthy2
             //Assert
             Assert.IsTrue(Program.uitkomstContainer.UitkomstList[0].maximaleZouten < 9 && Program.uitkomstContainer.UitkomstList[0].maximaleZouten > 0);
             Assert.IsTrue(Program.uitkomstContainer.UitkomstList[0].minimaleZouten < 9 && Program.uitkomstContainer.UitkomstList[0].minimaleZouten > 0);
-        }
-
-        [TestMethod]
-        public void TestInvoerToDatabase()
-        {
-            //Act
-            Program.invoerContainer.AddInvoer(2000, 50, 10, 50, 15, 35, 2);
-
-            //Assert
-            Assert.IsTrue(Program.invoerContainer.InvoerList.Count == 1);
         }
     }
 }

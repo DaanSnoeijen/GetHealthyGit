@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GetHealthy.Containers;
+using GetHealthy.Interfaces;
+using GetHealthy.DAL;
 
 namespace GetHealthy.Controllers
 {
@@ -10,6 +12,8 @@ namespace GetHealthy.Controllers
     {
         GebruikerContainer gc = Program.gebruikerContainer;
         UitkomstContainer uc = Program.uitkomstContainer;
+
+        IUitkomst iUitkomst = new UitkomstDAL();
 
         public void Bereken()
         {
@@ -36,6 +40,8 @@ namespace GetHealthy.Controllers
             BerekenSuikers();
             BerekenEiwitten();
             BerekenZouten();
+
+            iUitkomst.storeUitkomst();
         }
 
         //BMI bepaald of persoon moet afvallen of aankomen
@@ -81,8 +87,8 @@ namespace GetHealthy.Controllers
 
         private void BerekenVerzadigdeVetten()
         {
-            uc.UitkomstList[0].maximaleVerzagdigdeVetten = uc.UitkomstList[0].maximaleCalorieën / 10 / 9;
-            uc.UitkomstList[0].minimaleVerzagdigdeVetten = 0;
+            uc.UitkomstList[0].maximaleVerzadigdeVetten = uc.UitkomstList[0].maximaleCalorieën / 10 / 9;
+            uc.UitkomstList[0].minimaleVerzadigdeVetten = 0;
         }
 
         private void BerekenKoolhydraten()
