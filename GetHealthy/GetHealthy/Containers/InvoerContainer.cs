@@ -12,7 +12,7 @@ namespace GetHealthy.Containers
     {
         public List<Invoer> InvoerList = new List<Invoer>();
 
-        IInvoer iInvoer = new InvoerDAL();
+        IInvoer iInvoer = Program.invoerDAL;
 
         public void AddInvoer(double calorieën, double totaleVetten, double verzadigdeVetten, double koolhydraten, double suikers, double eiwitten, double zouten)
         {

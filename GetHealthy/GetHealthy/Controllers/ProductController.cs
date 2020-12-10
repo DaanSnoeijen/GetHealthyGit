@@ -10,11 +10,13 @@ namespace GetHealthy.Controllers
     {
         public List<ProductViewModel> productList = new List<ProductViewModel>();
 
+        public ProductContainer productContainer = new ProductContainer();
+
         public void ConvertToViewModel()
         {
             productList.Clear();
 
-            foreach (Product item in Program.productContainer.ProductList)
+            foreach (Product item in productContainer.ProductList)
             {
                 ProductViewModel product = new ProductViewModel(item.naam, item.calorieën, item.totaleVetten, item.verzadigdeVetten, item.koolhydraten, item.suikers, item.eiwitten, item.zouten);
                 productList.Add(product);

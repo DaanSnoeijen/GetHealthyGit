@@ -6,32 +6,40 @@ using System.Threading.Tasks;
 using GetHealthy.Interfaces;
 using GetHealthy.DTO;
 using System.Data;
+using GetHealthy.Containers;
 
 namespace GetHealthy.DAL
 {
     public class UitkomstDAL : IUitkomst
     {
+        UitkomstContainer uitkomstContainer;
+
         string connetionString = @"Data Source=MSI\SQLEXPRESS;Initial Catalog=GetHealthyDB;Integrated Security=True";
         SqlConnection connection;
         SqlCommand cmd;
+
+        public UitkomstDAL(UitkomstContainer uc)
+        {
+            uitkomstContainer = uc;
+        }
 
         void IUitkomst.storeUitkomst()
         {
             connection = new SqlConnection(connetionString);
 
             UitkomstDTO dto = new UitkomstDTO(
-                Program.uitkomstContainer.UitkomstList[0].maximaleCalorieën,
-                Program.uitkomstContainer.UitkomstList[0].minimaleCalorieën,
-                Program.uitkomstContainer.UitkomstList[0].maximaleTotaleVetten,
-                Program.uitkomstContainer.UitkomstList[0].minimaleTotaleVetten,
-                Program.uitkomstContainer.UitkomstList[0].maximaleVerzadigdeVetten,
-                Program.uitkomstContainer.UitkomstList[0].maximaleKoolhydraten,
-                Program.uitkomstContainer.UitkomstList[0].minimaleKoolhydraten,
-                Program.uitkomstContainer.UitkomstList[0].maximaleSuikers,
-                Program.uitkomstContainer.UitkomstList[0].maximaleEiwitten,
-                Program.uitkomstContainer.UitkomstList[0].minimaleEiwitten,
-                Program.uitkomstContainer.UitkomstList[0].maximaleZouten,
-                Program.uitkomstContainer.UitkomstList[0].minimaleZouten);
+                uitkomstContainer.UitkomstList[0].maximaleCalorieën,
+                uitkomstContainer.UitkomstList[0].minimaleCalorieën,
+                uitkomstContainer.UitkomstList[0].maximaleTotaleVetten,
+                uitkomstContainer.UitkomstList[0].minimaleTotaleVetten,
+                uitkomstContainer.UitkomstList[0].maximaleVerzadigdeVetten,
+                uitkomstContainer.UitkomstList[0].maximaleKoolhydraten,
+                uitkomstContainer.UitkomstList[0].minimaleKoolhydraten,
+                uitkomstContainer.UitkomstList[0].maximaleSuikers,
+                uitkomstContainer.UitkomstList[0].maximaleEiwitten,
+                uitkomstContainer.UitkomstList[0].minimaleEiwitten,
+                uitkomstContainer.UitkomstList[0].maximaleZouten,
+                uitkomstContainer.UitkomstList[0].minimaleZouten);
 
             string addUitkomst =
                 @"INSERT INTO Uitkomst (MaximaleCalorieën, MinimaleCalorieën, 

@@ -8,17 +8,21 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using GetHealthy.Controllers;
 using GetHealthy.Containers;
+using GetHealthy.DAL;
 
 namespace GetHealthy
 {
     public class Program
     {
-        public static ProductContainer productContainer = new ProductContainer();
         public static GebruikerContainer gebruikerContainer = new GebruikerContainer();
-        public static UitkomstContainer uitkomstContainer = new UitkomstContainer();
         public static InvoerContainer invoerContainer = new InvoerContainer();
-        public static BerekenController berekenController = new BerekenController();
-        public static ProductController productController = new ProductController();
+        public static UitkomstContainer uitkomstContainer = new UitkomstContainer();
+        public static ProductContainer productContainer = new ProductContainer();
+
+        public static BerekenController berekenController = new BerekenController(gebruikerContainer, uitkomstContainer, productContainer);
+
+        public static InvoerDAL invoerDAL = new InvoerDAL(invoerContainer);
+        public static UitkomstDAL uitkomstDAL = new UitkomstDAL(uitkomstContainer);
 
         public static void Main(string[] args)
         {

@@ -19,7 +19,9 @@ namespace GetHealthy.Models
             {
                 connection = new SqlConnection(connetionString);
 
-                string readProduct = "SELECT Naam, Calorieën, TotaleVetten, VerzadigdeVetten, Koolhydraten, Suikers, Eiwitten, Zouten FROM Product";
+                string readProduct =
+                    "SELECT Naam, Calorieën, TotaleVetten, VerzadigdeVetten, Koolhydraten, Suikers, Eiwitten, Zouten " +
+                    "FROM Product";
 
                 connection.Open();
                 cmd = new SqlCommand(readProduct, connection);

@@ -10,10 +10,16 @@ namespace GetHealthy.Controllers
 {
     public class BerekenController
     {
-        GebruikerContainer gc = Program.gebruikerContainer;
-        UitkomstContainer uc = Program.uitkomstContainer;
+        GebruikerContainer gc;
+        UitkomstContainer uc;
+        ProductContainer pc;
 
-        IUitkomst iUitkomst = new UitkomstDAL();
+        public BerekenController(GebruikerContainer gebruikerContainer, UitkomstContainer uitkomstContainer, ProductContainer productContainer)
+        {
+            gc = gebruikerContainer;
+            uc = uitkomstContainer;
+            pc = productContainer;
+        }
 
         public void Bereken()
         {
@@ -41,7 +47,7 @@ namespace GetHealthy.Controllers
             BerekenEiwitten();
             BerekenZouten();
 
-            iUitkomst.storeUitkomst();
+            uc.AddToDatabase();
         }
 
         //BMI bepaald of persoon moet afvallen of aankomen
