@@ -23,6 +23,9 @@ namespace GetHealthy.Controllers
 
         public void Bereken()
         {
+            //Voeg een nieuwe uitkomst toe
+            uc.AddUitkomst();
+
             //Bereken of gebruiker actief is
             if (gc.GebruikerList[0].werk == true)
             {

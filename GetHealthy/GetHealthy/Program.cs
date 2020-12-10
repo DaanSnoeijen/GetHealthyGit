@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using GetHealthy.Controllers;
 using GetHealthy.Containers;
 using GetHealthy.DAL;
+using GetHealthy.Interfaces;
 
 namespace GetHealthy
 {
@@ -20,9 +21,6 @@ namespace GetHealthy
         public static ProductContainer productContainer = new ProductContainer();
 
         public static BerekenController berekenController = new BerekenController(gebruikerContainer, uitkomstContainer, productContainer);
-
-        public static InvoerDAL invoerDAL = new InvoerDAL(invoerContainer);
-        public static UitkomstDAL uitkomstDAL = new UitkomstDAL(uitkomstContainer);
 
         public static void Main(string[] args)
         {

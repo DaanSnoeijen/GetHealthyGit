@@ -12,34 +12,27 @@ namespace GetHealthy.DAL
 {
     public class UitkomstDAL : IUitkomst
     {
-        UitkomstContainer uitkomstContainer;
-
         string connetionString = @"Data Source=MSI\SQLEXPRESS;Initial Catalog=GetHealthyDB;Integrated Security=True";
         SqlConnection connection;
         SqlCommand cmd;
 
-        public UitkomstDAL(UitkomstContainer uc)
-        {
-            uitkomstContainer = uc;
-        }
-
-        void IUitkomst.storeUitkomst()
+        void IUitkomst.storeUitkomst(
+            int maxCal,
+            int minCal,
+            int maxTot,
+            int minTot,
+            int maxVer,
+            int maxKool,
+            int minKool,
+            int maxSuik,
+            double maxEi,
+            double minEi,
+            double maxZout,
+            double minZout)
         {
             connection = new SqlConnection(connetionString);
 
-            UitkomstDTO dto = new UitkomstDTO(
-                uitkomstContainer.UitkomstList[0].maximaleCalorieën,
-                uitkomstContainer.UitkomstList[0].minimaleCalorieën,
-                uitkomstContainer.UitkomstList[0].maximaleTotaleVetten,
-                uitkomstContainer.UitkomstList[0].minimaleTotaleVetten,
-                uitkomstContainer.UitkomstList[0].maximaleVerzadigdeVetten,
-                uitkomstContainer.UitkomstList[0].maximaleKoolhydraten,
-                uitkomstContainer.UitkomstList[0].minimaleKoolhydraten,
-                uitkomstContainer.UitkomstList[0].maximaleSuikers,
-                uitkomstContainer.UitkomstList[0].maximaleEiwitten,
-                uitkomstContainer.UitkomstList[0].minimaleEiwitten,
-                uitkomstContainer.UitkomstList[0].maximaleZouten,
-                uitkomstContainer.UitkomstList[0].minimaleZouten);
+            UitkomstDTO dto = new UitkomstDTO(maxCal, minCal, maxTot, minTot, maxVer, maxKool, minKool, maxSuik, maxEi, minEi, maxZout, minZout);
 
             string addUitkomst =
                 @"INSERT INTO Uitkomst (MaximaleCalorieën, MinimaleCalorieën, 

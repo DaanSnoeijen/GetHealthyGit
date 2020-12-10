@@ -11,7 +11,7 @@ namespace GetHealthy.Containers
     public class UitkomstContainer
     {
         public List<Uitkomst> UitkomstList = new List<Uitkomst>();
-        IUitkomst iUitkomst = Program.uitkomstDAL;
+        IUitkomst iUitkomst = new UitkomstDAL();
 
         public void AddUitkomst()
         {
@@ -21,7 +21,19 @@ namespace GetHealthy.Containers
 
         public void AddToDatabase()
         {
-            iUitkomst.storeUitkomst();
+            iUitkomst.storeUitkomst(
+                UitkomstList[0].maximaleCalorieën,
+                UitkomstList[0].minimaleCalorieën,
+                UitkomstList[0].maximaleTotaleVetten,
+                UitkomstList[0].minimaleTotaleVetten,
+                UitkomstList[0].maximaleVerzadigdeVetten,
+                UitkomstList[0].maximaleKoolhydraten,
+                UitkomstList[0].minimaleKoolhydraten,
+                UitkomstList[0].maximaleSuikers,
+                UitkomstList[0].maximaleEiwitten,
+                UitkomstList[0].minimaleEiwitten,
+                UitkomstList[0].maximaleZouten,
+                UitkomstList[0].minimaleZouten);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace UnitTestGetHealthy
         public void TestAddUitkomst()
         {
             //Arrange
-            UitkomstContainer uitkomstContainer = new UitkomstContainer();
+            UitkomstContainer uitkomstContainer = Program.uitkomstContainer;
 
             //Act
             uitkomstContainer.AddUitkomst();
