@@ -4,15 +4,14 @@ namespace GetHealthy.Controllers
 {
     public class Product
     {
-        public string naam { get; private set; }
-        public double calorieën { get; private set; }
-        public double totaleVetten { get; private set; }
-        public double verzadigdeVetten { get; private set; }
-        public double koolhydraten { get; private set; }
-        public double suikers { get; private set; }
-        public double eiwitten { get; private set; }
-        public double zouten { get; private set; }
-        public double hoeveelheid;
+        public string naam { get; set; }
+        public double calorieën { get; set; }
+        public double totaleVetten { get; set; }
+        public double verzadigdeVetten { get; set; }
+        public double koolhydraten { get; set; }
+        public double suikers { get; set; }
+        public double eiwitten { get; set; }
+        public double zouten { get; set; }
 
         public Product(string Naam, double Calorieën, double TotaleVetten, double VerzadigdeVetten, double Koolhydraten, double Suikers, double Eiwitten, double Zouten)
         {
@@ -26,60 +25,6 @@ namespace GetHealthy.Controllers
             zouten = Zouten;
         }
 
-        public void BerekenHoeveelheid()
-        {
-            double hoeveelheidVermenigvuldig;
-
-            if (hoeveelheid == 1)
-            {
-                hoeveelheidVermenigvuldig = 5;
-
-                calorieën *= hoeveelheidVermenigvuldig;
-                totaleVetten *= hoeveelheidVermenigvuldig;
-                verzadigdeVetten *= hoeveelheidVermenigvuldig;
-                koolhydraten *= hoeveelheidVermenigvuldig;
-                suikers *= hoeveelheidVermenigvuldig;
-                eiwitten *= hoeveelheidVermenigvuldig;
-                zouten *= hoeveelheidVermenigvuldig;
-            }
-            else if (hoeveelheid == 2)
-            {
-                hoeveelheidVermenigvuldig = 2.5;
-
-                calorieën *= hoeveelheidVermenigvuldig;
-                totaleVetten *= hoeveelheidVermenigvuldig;
-                verzadigdeVetten *= hoeveelheidVermenigvuldig;
-                koolhydraten *= hoeveelheidVermenigvuldig;
-                suikers *= hoeveelheidVermenigvuldig;
-                eiwitten *= hoeveelheidVermenigvuldig;
-                zouten *= hoeveelheidVermenigvuldig;
-            }
-            else if (hoeveelheid == 4)
-            {
-                hoeveelheidVermenigvuldig = 0.5;
-
-                calorieën *= hoeveelheidVermenigvuldig;
-                totaleVetten *= hoeveelheidVermenigvuldig;
-                verzadigdeVetten *= hoeveelheidVermenigvuldig;
-                koolhydraten *= hoeveelheidVermenigvuldig;
-                suikers *= hoeveelheidVermenigvuldig;
-                eiwitten *= hoeveelheidVermenigvuldig;
-                zouten *= hoeveelheidVermenigvuldig;
-            }
-            else if (hoeveelheid == 5)
-            {
-                hoeveelheidVermenigvuldig = 0.1;
-
-                calorieën *= hoeveelheidVermenigvuldig;
-                totaleVetten *= hoeveelheidVermenigvuldig;
-                verzadigdeVetten *= hoeveelheidVermenigvuldig;
-                koolhydraten *= hoeveelheidVermenigvuldig;
-                suikers *= hoeveelheidVermenigvuldig;
-                eiwitten *= hoeveelheidVermenigvuldig;
-                zouten *= hoeveelheidVermenigvuldig;
-            }
-        }
-
         public override string ToString()
         {
             return naam + ", calorieën: " +
@@ -89,8 +34,7 @@ namespace GetHealthy.Controllers
                 Convert.ToString(koolhydraten) + ", suikers: " +
                 Convert.ToString(suikers) + ", eiwitten: " +
                 Convert.ToString(eiwitten) + ", zouten: " +
-                Convert.ToString(zouten) + ", hoeveelheid: " +
-                Convert.ToString(hoeveelheid);
+                Convert.ToString(zouten) + ", hoeveelheid: ";
         }
     }
 }

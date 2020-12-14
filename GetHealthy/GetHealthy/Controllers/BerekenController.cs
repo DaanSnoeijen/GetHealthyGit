@@ -13,12 +13,14 @@ namespace GetHealthy.Controllers
         GebruikerContainer gc;
         UitkomstContainer uc;
         ProductContainer pc;
+        InvoerContainer ic;
 
-        public BerekenController(GebruikerContainer gebruikerContainer, UitkomstContainer uitkomstContainer, ProductContainer productContainer)
+        public BerekenController(GebruikerContainer gebruikerContainer, UitkomstContainer uitkomstContainer, ProductContainer productContainer, InvoerContainer invoerContainer)
         {
             gc = gebruikerContainer;
             uc = uitkomstContainer;
             pc = productContainer;
+            ic = invoerContainer;
         }
 
         public void Bereken()

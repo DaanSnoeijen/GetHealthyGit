@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace GetHealthy.Models
 {
-    interface IProduct
+    public interface IProduct
     {
         public List<ProductDTO> GetProduct();
     }

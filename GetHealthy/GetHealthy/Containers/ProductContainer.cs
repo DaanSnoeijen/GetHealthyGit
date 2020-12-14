@@ -9,10 +9,15 @@ namespace GetHealthy.Controllers
         public List<Product> ProductList = new List<Product>();
         public List<Product> SelectedProducts = new List<Product>();
 
+        IProduct iProduct;
+
+        public ProductContainer(IProduct product)
+        {
+            iProduct = product;
+        }
+
         public void GetProduct()
         {
-            IProduct iProduct = new ProductenDAL();
-
             ProductList.Clear();
 
             foreach (ProductDTO item in iProduct.GetProduct())

@@ -12,29 +12,22 @@ namespace GetHealthy.DAL
 {
     public class InvoerDAL : IInvoer
     {
-        InvoerContainer invoerContainer;
-
         string connetionString = @"Data Source=MSI\SQLEXPRESS;Initial Catalog=GetHealthyDB;Integrated Security=True";
         SqlConnection connection;
         SqlCommand cmd;
-
-        public InvoerDAL(InvoerContainer ic)
-        {
-            invoerContainer = ic;
-        }
 
         void IInvoer.StoreInvoer()
         {
             connection = new SqlConnection(connetionString);
 
             InvoerDTO dto = new InvoerDTO(
-                invoerContainer.InvoerList[0].calorieën,
-                invoerContainer.InvoerList[0].totaleVetten,
-                invoerContainer.InvoerList[0].verzadigdeVetten,
-                invoerContainer.InvoerList[0].koolhydraten,
-                invoerContainer.InvoerList[0].suikers,
-                invoerContainer.InvoerList[0].eiwitten,
-                invoerContainer.InvoerList[0].zouten);
+                Program.invoerContainer.InvoerList[0].calorieën,
+                Program.invoerContainer.InvoerList[0].totaleVetten,
+                Program.invoerContainer.InvoerList[0].verzadigdeVetten,
+                Program.invoerContainer.InvoerList[0].koolhydraten,
+                Program.invoerContainer.InvoerList[0].suikers,
+                Program.invoerContainer.InvoerList[0].eiwitten,
+                Program.invoerContainer.InvoerList[0].zouten);
 
             string addInvoer =
                 @"INSERT INTO Invoer (InvoerCalorieën, InvoerTotaleVetten, InvoerVerzadigdeVetten, InvoerKoolhydraten, InvoerSuikers, InvoerEiwitten, InvoerZouten, Datum)" +

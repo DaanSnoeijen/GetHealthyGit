@@ -5,23 +5,31 @@ using System.Threading.Tasks;
 using GetHealthy.Models;
 using GetHealthy.Interfaces;
 using GetHealthy.DAL;
+using GetHealthy.DTO;
 
 namespace GetHealthy.Containers
 {
     public class UitkomstContainer
     {
         public List<Uitkomst> UitkomstList = new List<Uitkomst>();
-        IUitkomst iUitkomst = new UitkomstDAL();
+
+        IUitkomst uitkomst;
+
+        public UitkomstContainer(IUitkomst iUitkomst)
+        {
+            uitkomst = iUitkomst;
+        }
 
         public void AddUitkomst()
         {
             Uitkomst uitkomst = new Uitkomst();
+            UitkomstList.Clear();
             UitkomstList.Add(uitkomst);
         }
 
         public void AddToDatabase()
         {
-            iUitkomst.storeUitkomst(
+            UitkomstDTO dto = new UitkomstDTO(
                 UitkomstList[0].maximaleCalorieën,
                 UitkomstList[0].minimaleCalorieën,
                 UitkomstList[0].maximaleTotaleVetten,
@@ -34,6 +42,7 @@ namespace GetHealthy.Containers
                 UitkomstList[0].minimaleEiwitten,
                 UitkomstList[0].maximaleZouten,
                 UitkomstList[0].minimaleZouten);
+            uitkomst.storeUitkomst(dto);
         }
     }
 }

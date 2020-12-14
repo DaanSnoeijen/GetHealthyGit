@@ -13,10 +13,12 @@ namespace UnitTestGetHealthy
         public void TestVoedingsWaardes()
         {
             //Arrange
-            GebruikerContainer gebruikerContainer = Program.gebruikerContainer;
-            UitkomstContainer uitkomstContainer = Program.uitkomstContainer;
+            GebruikerContainer gebruikerContainer = new GebruikerContainer();
+            UitkomstContainer uitkomstContainer =  new UitkomstContainer();
+            ProductContainer productContainer = new ProductContainer();
+            InvoerContainer invoerContainer = new InvoerContainer();
 
-            BerekenController berekenController = Program.berekenController;
+            BerekenController berekenController = new BerekenController(gebruikerContainer, uitkomstContainer, productContainer, invoerContainer);
 
             DateTime date = new DateTime(2002, 9, 1);
             gebruikerContainer.AddGebruiker(1, 65, 190, date.Date, 2, true, false);

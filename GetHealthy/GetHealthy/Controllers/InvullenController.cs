@@ -49,8 +49,59 @@ namespace GetHealthy.Controllers
                 if (product.naam == productChecked)
                 {
                     Product selectedProduct = new Product(product.naam, product.calorieën, product.totaleVetten, product.verzadigdeVetten, product.koolhydraten, product.suikers, product.eiwitten, product.zouten);
-                    selectedProduct.hoeveelheid = double.Parse(hoeveelheidProduct);
-                    selectedProduct.BerekenHoeveelheid();
+
+                    double hoeveelheid = double.Parse(hoeveelheidProduct);
+                    double hoeveelheidVermenigvuldig;
+
+                    if (hoeveelheid == 1)
+                    {
+                        hoeveelheidVermenigvuldig = 5;
+
+                        selectedProduct.calorieën *= hoeveelheidVermenigvuldig;
+                        selectedProduct.totaleVetten *= hoeveelheidVermenigvuldig;
+                        selectedProduct.verzadigdeVetten *= hoeveelheidVermenigvuldig;
+                        selectedProduct.koolhydraten *= hoeveelheidVermenigvuldig;
+                        selectedProduct.suikers *= hoeveelheidVermenigvuldig;
+                        selectedProduct.eiwitten *= hoeveelheidVermenigvuldig;
+                        selectedProduct.zouten *= hoeveelheidVermenigvuldig;
+                    }
+                    else if (hoeveelheid == 2)
+                    {
+                        hoeveelheidVermenigvuldig = 2.5;
+
+                        selectedProduct.calorieën *= hoeveelheidVermenigvuldig;
+                        selectedProduct.totaleVetten *= hoeveelheidVermenigvuldig;
+                        selectedProduct.verzadigdeVetten *= hoeveelheidVermenigvuldig;
+                        selectedProduct.koolhydraten *= hoeveelheidVermenigvuldig;
+                        selectedProduct.suikers *= hoeveelheidVermenigvuldig;
+                        selectedProduct.eiwitten *= hoeveelheidVermenigvuldig;
+                        selectedProduct.zouten *= hoeveelheidVermenigvuldig;
+                    }
+                    else if (hoeveelheid == 4)
+                    {
+                        hoeveelheidVermenigvuldig = 0.5;
+
+                        selectedProduct.calorieën *= hoeveelheidVermenigvuldig;
+                        selectedProduct.totaleVetten *= hoeveelheidVermenigvuldig;
+                        selectedProduct.verzadigdeVetten *= hoeveelheidVermenigvuldig;
+                        selectedProduct.koolhydraten *= hoeveelheidVermenigvuldig;
+                        selectedProduct.suikers *= hoeveelheidVermenigvuldig;
+                        selectedProduct.eiwitten *= hoeveelheidVermenigvuldig;
+                        selectedProduct.zouten *= hoeveelheidVermenigvuldig;
+                    }
+                    else if (hoeveelheid == 5)
+                    {
+                        hoeveelheidVermenigvuldig = 0.1;
+
+                        selectedProduct.calorieën *= hoeveelheidVermenigvuldig;
+                        selectedProduct.totaleVetten *= hoeveelheidVermenigvuldig;
+                        selectedProduct.verzadigdeVetten *= hoeveelheidVermenigvuldig;
+                        selectedProduct.koolhydraten *= hoeveelheidVermenigvuldig;
+                        selectedProduct.suikers *= hoeveelheidVermenigvuldig;
+                        selectedProduct.eiwitten *= hoeveelheidVermenigvuldig;
+                        selectedProduct.zouten *= hoeveelheidVermenigvuldig;
+                    }
+
                     productController.productContainer.SelectedProducts.Add(selectedProduct);
                 }
             }

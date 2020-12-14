@@ -7,8 +7,8 @@ using GetHealthy.DTO;
 
 namespace GetHealthy.Interfaces
 {
-    interface IInvoer
+    public interface IInvoer
     {
-        public void StoreInvoer();
+        public void StoreInvoer(InvoerDTO invoerDTO);
     }
 }
