@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using GetHealthy.Models;
 using GetHealthy.Interfaces;
 using GetHealthy.DAL;
+using GetHealthy.DTO;
 
 namespace GetHealthy.Containers
 {
@@ -19,17 +20,14 @@ namespace GetHealthy.Containers
             iInvoer = invoer;
         }
 
-        public InvoerContainer()
-        {
-            iInvoer = new InvoerDAL();
-        }
-
         public void AddInvoer(double calorieën, double totaleVetten, double verzadigdeVetten, double koolhydraten, double suikers, double eiwitten, double zouten)
         {
             Invoer invoer = new Invoer(calorieën, totaleVetten, verzadigdeVetten, koolhydraten, suikers, eiwitten, zouten);
+            InvoerDTO invoerDTO = new InvoerDTO(calorieën, totaleVetten, verzadigdeVetten, koolhydraten, suikers, eiwitten, zouten);
+
             InvoerList.Add(invoer);
 
-            iInvoer.StoreInvoer();
+            iInvoer.StoreInvoer(invoerDTO);
         }
     }
 }

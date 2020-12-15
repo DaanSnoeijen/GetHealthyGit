@@ -22,6 +22,7 @@ namespace GetHealthy
         public static ProductContainer productContainer = new ProductContainer(iProduct);
 
         public static BerekenController berekenController = new BerekenController(gebruikerContainer, uitkomstContainer, productContainer, invoerContainer);
+        public static ProductController productController = new ProductController(productContainer);
 
         static IInvoer iInvoer = new InvoerDAL();
         static IUitkomst iUitkomst = new UitkomstDAL();

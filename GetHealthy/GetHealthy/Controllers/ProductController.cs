@@ -9,8 +9,12 @@ namespace GetHealthy.Controllers
     public class ProductController
     {
         public List<ProductViewModel> productList = new List<ProductViewModel>();
+        ProductContainer productContainer;
 
-        public ProductContainer productContainer = new ProductContainer();
+        public ProductController(ProductContainer product)
+        {
+            productContainer = product;
+        }
 
         public void ConvertToViewModel()
         {
