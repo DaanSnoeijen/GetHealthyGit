@@ -10,10 +10,10 @@ namespace GetHealthy.Controllers
 {
     public class BerekenController
     {
-        GebruikerContainer gc;
-        UitkomstContainer uc;
-        ProductContainer pc;
-        InvoerContainer ic;
+        IGebruikerContainer gc;
+        IUitkomstContainer uc;
+        IProductContainer pc;
+        IInvoerContainer ic;
 
         public BerekenController(GebruikerContainer gebruikerContainer, UitkomstContainer uitkomstContainer, ProductContainer productContainer, InvoerContainer invoerContainer)
         {
@@ -23,24 +23,32 @@ namespace GetHealthy.Controllers
             ic = invoerContainer;
         }
 
+        public BerekenController()
+        {
+            gc = new GebruikerContainer();
+            uc = new UitkomstContainer();
+            pc = new ProductContainer();
+            ic = new InvoerContainer();
+        }
+
         public void Bereken()
         {
             //Voeg een nieuwe uitkomst toe
             uc.AddUitkomst();
 
             //Bereken of gebruiker actief is
-            if (gc.GebruikerList[0].werk == true)
+            if (gc.GetGebruiker().werk == true)
             {
-                gc.GebruikerList[0].activiteit = true;
+                gc.GetGebruiker().activiteit = true;
             }
-            if (gc.GebruikerList[0].sportPerWeek > 2)
+            if (gc.GetGebruiker().sportPerWeek > 2)
             {
-                gc.GebruikerList[0].activiteit = true;
+                gc.GetGebruiker().activiteit = true;
             }
 
             //Bereken leeftijd
             var today = DateTime.Today;
-            gc.GebruikerList[0].leeftijd = today.Year - gc.GebruikerList[0].geboortedatum.Year;
+            gc.GetGebruiker().leeftijd = today.Year - gc.GetGebruiker().geboortedatum.Year;
 
             //Bereken voedingswaardes en BMI
             BerekenBMI();
@@ -58,60 +66,60 @@ namespace GetHealthy.Controllers
         //BMI bepaald of persoon moet afvallen of aankomen
         private void BerekenBMI()
         {
-            double meterLengte = gc.GebruikerList[0].lengte / 100 * 2;
+            double meterLengte = gc.GetGebruiker().lengte / 100 * 2;
 
-            gc.GebruikerList[0].BMI = gc.GebruikerList[0].gewicht / meterLengte;
+            gc.GetGebruiker().BMI = gc.GetGebruiker().gewicht / meterLengte;
         }
 
         private void BerekenCalorieën()
         {
             uc.AddUitkomst();
 
-            if (gc.GebruikerList[0].geslacht == 0)
+            if (gc.GetGebruiker().geslacht == 0)
             {
-                uc.UitkomstList[0].maximaleCalorieën = 566 + (14 * gc.GebruikerList[0].gewicht) + (5 * Convert.ToInt32(gc.GebruikerList[0].lengte)) - (7 * gc.GebruikerList[0].leeftijd);
-                uc.UitkomstList[0].minimaleCalorieën = 66 + (14 * gc.GebruikerList[0].gewicht) + (5 * Convert.ToInt32(gc.GebruikerList[0].lengte)) - (7 * gc.GebruikerList[0].leeftijd);
+                uc.GetUitkomst().maximaleCalorieën = 566 + (14 * gc.GetGebruiker().gewicht) + (5 * Convert.ToInt32(gc.GetGebruiker().lengte)) - (7 * gc.GetGebruiker().leeftijd);
+                uc.GetUitkomst().minimaleCalorieën = 66 + (14 * gc.GetGebruiker().gewicht) + (5 * Convert.ToInt32(gc.GetGebruiker().lengte)) - (7 * gc.GetGebruiker().leeftijd);
             }
             else
             {
-                uc.UitkomstList[0].maximaleCalorieën = 1155 + (10 * gc.GebruikerList[0].gewicht) + (2 * Convert.ToInt32(gc.GebruikerList[0].lengte)) - (5 * gc.GebruikerList[0].leeftijd);
-                uc.UitkomstList[0].minimaleCalorieën = 655 + (10 * gc.GebruikerList[0].gewicht) + (2 * Convert.ToInt32(gc.GebruikerList[0].lengte)) - (5 * gc.GebruikerList[0].leeftijd);
+                uc.GetUitkomst().maximaleCalorieën = 1155 + (10 * gc.GetGebruiker().gewicht) + (2 * Convert.ToInt32(gc.GetGebruiker().lengte)) - (5 * gc.GetGebruiker().leeftijd);
+                uc.GetUitkomst().minimaleCalorieën = 655 + (10 * gc.GetGebruiker().gewicht) + (2 * Convert.ToInt32(gc.GetGebruiker().lengte)) - (5 * gc.GetGebruiker().leeftijd);
             }
 
-            if (gc.GebruikerList[0].BMI < 18.5)
+            if (gc.GetGebruiker().BMI < 18.5)
             {
-                uc.UitkomstList[0].maximaleCalorieën += 200;
-                uc.UitkomstList[0].minimaleCalorieën += 200;
+                uc.GetUitkomst().maximaleCalorieën += 200;
+                uc.GetUitkomst().minimaleCalorieën += 200;
             }
-            else if (gc.GebruikerList[0].BMI > 25)
+            else if (gc.GetGebruiker().BMI > 25)
             {
-                uc.UitkomstList[0].maximaleCalorieën -= 200;
-                uc.UitkomstList[0].minimaleCalorieën -= 200;
+                uc.GetUitkomst().maximaleCalorieën -= 200;
+                uc.GetUitkomst().minimaleCalorieën -= 200;
             }
         }
 
         private void BerekenTotaleVetten()
         {
-            uc.UitkomstList[0].maximaleTotaleVetten = uc.UitkomstList[0].maximaleCalorieën / 100 * 40 / 9;
-            uc.UitkomstList[0].minimaleTotaleVetten = uc.UitkomstList[0].minimaleCalorieën / 100 * 20 / 9;
+            uc.GetUitkomst().maximaleTotaleVetten = uc.GetUitkomst().maximaleCalorieën / 100 * 40 / 9;
+            uc.GetUitkomst().minimaleTotaleVetten = uc.GetUitkomst().minimaleCalorieën / 100 * 20 / 9;
         }
 
         private void BerekenVerzadigdeVetten()
         {
-            uc.UitkomstList[0].maximaleVerzadigdeVetten = uc.UitkomstList[0].maximaleCalorieën / 10 / 9;
-            uc.UitkomstList[0].minimaleVerzadigdeVetten = 0;
+            uc.GetUitkomst().maximaleVerzadigdeVetten = uc.GetUitkomst().maximaleCalorieën / 10 / 9;
+            uc.GetUitkomst().minimaleVerzadigdeVetten = 0;
         }
 
         private void BerekenKoolhydraten()
         {
-            uc.UitkomstList[0].maximaleKoolhydraten = uc.UitkomstList[0].maximaleCalorieën / 100 * 70 / 4;
-            uc.UitkomstList[0].minimaleKoolhydraten = uc.UitkomstList[0].minimaleCalorieën / 100 * 40 / 4;
+            uc.GetUitkomst().maximaleKoolhydraten = uc.GetUitkomst().maximaleCalorieën / 100 * 70 / 4;
+            uc.GetUitkomst().minimaleKoolhydraten = uc.GetUitkomst().minimaleCalorieën / 100 * 40 / 4;
         }
 
         private void BerekenSuikers()
         {
-            uc.UitkomstList[0].maximaleSuikers = 90;
-            uc.UitkomstList[0].minimaleSuikers = 0;
+            uc.GetUitkomst().maximaleSuikers = 90;
+            uc.GetUitkomst().minimaleSuikers = 0;
         }
 
         private void BerekenEiwitten()
@@ -119,51 +127,51 @@ namespace GetHealthy.Controllers
             double maxGetal = 0.5;
             double minGetal = 0.5;
 
-            if (gc.GebruikerList[0].activiteit)
+            if (gc.GetGebruiker().activiteit)
             {
                 maxGetal += 1.0;
                 minGetal += 0.5;
             }
 
-            if (gc.GebruikerList[0].leeftijd <= 1)
+            if (gc.GetGebruiker().leeftijd <= 1)
             {
                 maxGetal += 1.8;
                 minGetal += 1.2;
-                uc.UitkomstList[0].maximaleEiwitten = maxGetal * gc.GebruikerList[0].gewicht;
-                uc.UitkomstList[0].minimaleEiwitten = minGetal * gc.GebruikerList[0].gewicht;
+                uc.GetUitkomst().maximaleEiwitten = maxGetal * gc.GetGebruiker().gewicht;
+                uc.GetUitkomst().minimaleEiwitten = minGetal * gc.GetGebruiker().gewicht;
             }
-            else if (gc.GebruikerList[0].leeftijd > 1 && gc.GebruikerList[0].leeftijd <= 13)
+            else if (gc.GetGebruiker().leeftijd > 1 && gc.GetGebruiker().leeftijd <= 13)
             {
                 maxGetal += 1.0;
                 minGetal += 0.8;
-                uc.UitkomstList[0].maximaleEiwitten = maxGetal * gc.GebruikerList[0].gewicht;
-                uc.UitkomstList[0].minimaleEiwitten = minGetal * gc.GebruikerList[0].gewicht;
+                uc.GetUitkomst().maximaleEiwitten = maxGetal * gc.GetGebruiker().gewicht;
+                uc.GetUitkomst().minimaleEiwitten = minGetal * gc.GetGebruiker().gewicht;
             }
-            else if (gc.GebruikerList[0].leeftijd > 13)
+            else if (gc.GetGebruiker().leeftijd > 13)
             {
                 maxGetal += 0.9;
                 minGetal += 0.7;
-                uc.UitkomstList[0].maximaleEiwitten = maxGetal * gc.GebruikerList[0].gewicht;
-                uc.UitkomstList[0].minimaleEiwitten = minGetal * gc.GebruikerList[0].gewicht;
+                uc.GetUitkomst().maximaleEiwitten = maxGetal * gc.GetGebruiker().gewicht;
+                uc.GetUitkomst().minimaleEiwitten = minGetal * gc.GetGebruiker().gewicht;
             }
         }
 
         private void BerekenZouten()
         {
-            if (gc.GebruikerList[0].leeftijd <= 3)
+            if (gc.GetGebruiker().leeftijd <= 3)
             {
-                uc.UitkomstList[0].maximaleZouten = 3.0;
-                uc.UitkomstList[0].minimaleZouten = 2.5;
+                uc.GetUitkomst().maximaleZouten = 3.0;
+                uc.GetUitkomst().minimaleZouten = 2.5;
             }
-            else if (gc.GebruikerList[0].leeftijd > 3 && gc.GebruikerList[0].leeftijd <= 8)
+            else if (gc.GetGebruiker().leeftijd > 3 && gc.GetGebruiker().leeftijd <= 8)
             {
-                uc.UitkomstList[0].maximaleZouten = 4.5;
-                uc.UitkomstList[0].minimaleZouten = 3.0;
+                uc.GetUitkomst().maximaleZouten = 4.5;
+                uc.GetUitkomst().minimaleZouten = 3.0;
             }
-            else if (gc.GebruikerList[0].leeftijd > 8)
+            else if (gc.GetGebruiker().leeftijd > 8)
             {
-                uc.UitkomstList[0].maximaleZouten = 6;
-                uc.UitkomstList[0].minimaleZouten = 3.0;
+                uc.GetUitkomst().maximaleZouten = 6;
+                uc.GetUitkomst().minimaleZouten = 3.0;
             }
         }
     }

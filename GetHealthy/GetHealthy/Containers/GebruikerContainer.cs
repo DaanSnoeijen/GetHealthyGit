@@ -16,5 +16,10 @@ namespace GetHealthy.Containers
             Gebruiker g = new Gebruiker(geslacht, gewicht, lengte, geboortedatum, sportPerWeek, werk, vegan);
             GebruikerList.Add(g);
         }
+
+        public Gebruiker GetGebruiker()
+        {
+            return GebruikerList[0];
+        }
     }
 }

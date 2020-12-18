@@ -49,5 +49,10 @@ namespace GetHealthy.Containers
                 UitkomstList[0].minimaleZouten);
             uitkomst.storeUitkomst(dto);
         }
+
+        public Uitkomst GetUitkomst()
+        {
+            return UitkomstList[0];
+        }
     }
 }

@@ -11,5 +11,7 @@ namespace GetHealthy.Interfaces
     {
         void AddUitkomst();
         void AddToDatabase();
+
+        Uitkomst GetUitkomst();
     }
 }
