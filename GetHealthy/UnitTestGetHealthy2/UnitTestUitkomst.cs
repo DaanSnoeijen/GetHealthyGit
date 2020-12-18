@@ -26,10 +26,15 @@ namespace UnitTestGetHealthy
         [TestMethod]
         public void TestUitkomstDatabase()
         {
+            //Arrange
+            UitkomstContainer uitkomstContainer = Program.uitkomstContainer;
+
+            uitkomstContainer.AddUitkomst();
+
             //Act
             try
             {
-                Program.berekenController.Bereken();
+                uitkomstContainer.AddToDatabase();
             }
             //Assert
             catch

@@ -15,10 +15,10 @@ namespace UnitTestGetHealthy
         public void TestVoedingsWaardes()
         {
             //Arrange
-            IGebruikerContainer gebruikerContainer = new GebruikerContainer();
+            GebruikerContainer gebruikerContainer = new GebruikerContainer();
             UitkomstContainer uitkomstContainer = new UitkomstContainer();
-            IProductContainer productContainer = new ProductContainer();
-            IInvoerContainer invoerContainer = new InvoerContainer();
+            ProductContainer productContainer = new ProductContainer();
+            InvoerContainer invoerContainer = new InvoerContainer();
 
             BerekenController berekenController = new BerekenController(gebruikerContainer, uitkomstContainer, productContainer, invoerContainer);
 

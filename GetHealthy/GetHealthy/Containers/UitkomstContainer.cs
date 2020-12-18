@@ -22,7 +22,7 @@ namespace GetHealthy.Containers
 
         public UitkomstContainer()
         {
-            IUitkomst uitkomst = new UitkomstDAL();
+            uitkomst = new UitkomstDAL();
         }
 
         public void AddUitkomst()
