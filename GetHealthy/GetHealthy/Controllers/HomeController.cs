@@ -20,6 +20,10 @@ namespace GetHealthy.Controllers
 
         public IActionResult Index()
         {
+            Program.gebruikerContainer.GebruikerList.Clear();
+            Program.uitkomstContainer.UitkomstList.Clear();
+            Program.productContainer.SelectedProducts.Clear();
+
             return View();
         }
 

@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GetHealthy.Interfaces;
 using GetHealthy.Models;
 
 namespace GetHealthy.Containers
 {
-    public class GebruikerContainer
+    public class GebruikerContainer : IGebruikerContainer
     {
         public List<Gebruiker> GebruikerList = new List<Gebruiker>();
 

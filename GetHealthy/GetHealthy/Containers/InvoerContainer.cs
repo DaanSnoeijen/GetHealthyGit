@@ -9,7 +9,7 @@ using GetHealthy.DTO;
 
 namespace GetHealthy.Containers
 {
-    public class InvoerContainer
+    public class InvoerContainer : IInvoerContainer
     {
         public List<Invoer> InvoerList = new List<Invoer>();
 
@@ -18,6 +18,11 @@ namespace GetHealthy.Containers
         public InvoerContainer(IInvoer invoer)
         {
             iInvoer = invoer;
+        }
+
+        public InvoerContainer()
+        {
+            IInvoer iInvoer = new InvoerDAL();
         }
 
         public void AddInvoer(double calorieën, double totaleVetten, double verzadigdeVetten, double koolhydraten, double suikers, double eiwitten, double zouten)

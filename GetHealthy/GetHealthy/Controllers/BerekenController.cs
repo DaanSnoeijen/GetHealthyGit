@@ -23,6 +23,18 @@ namespace GetHealthy.Controllers
             ic = invoerContainer;
         }
 
+        public BerekenController(IGebruikerContainer igebruikerContainer, UitkomstContainer uitkomstContainer, IProductContainer iproductContainer, IInvoerContainer iinvoerContainer)
+        {
+            GebruikerContainer gc = new GebruikerContainer();
+            ProductContainer pc = new ProductContainer();
+            InvoerContainer ic = new InvoerContainer();
+
+            igebruikerContainer = gc;
+            uc = uitkomstContainer;
+            iproductContainer = pc;
+            iinvoerContainer = ic;
+        }
+
         public void Bereken()
         {
             //Voeg een nieuwe uitkomst toe

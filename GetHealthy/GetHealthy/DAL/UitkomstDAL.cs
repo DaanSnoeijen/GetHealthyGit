@@ -21,37 +21,24 @@ namespace GetHealthy.DAL
             connection = new SqlConnection(connetionString);
 
             string addUitkomst =
-                @"INSERT INTO Uitkomst (MaximaleCalorieën, MinimaleCalorieën, 
-                                        MaximaleTotaleVetten, MinimaleTotaleVetten, 
-                                        MaximaleVerzadigdeVetten, 
-                                        MaximaleKoolhydraten, MinimaleKoolhydraten, 
-                                        MaximaleSuikers, 
-                                        MaximaleEiwitten, MinimaleEiwitten, 
-                                        MaximaleZouten, MinimaleZouten)" +
-                "VALUES (" +
-                        "@dto.maximaleCalorieën, @dto.minimaleCalorieën," +
-                        "@dto.maximaleTotaleVetten, @dto.minimaleTotaleVetten," +
-                        "@dto.maximaleVerzadigdeVetten," +
-                        "@dto.maximaleKoolhydraten, @dto.minimaleKoolhydraten," +
-                        "@dto.maximaleSuikers," +
-                        "@dto.maximaleEiwitten, @dto.minimaleEiwitten," +
-                        "@dto.maximaleZouten, @dto.minimaleZouten)";
+                @"INSERT INTO Uitkomst (MaximaleCalorieën, MinimaleCalorieën, MaximaleTotaleVetten, MinimaleTotaleVetten, MaximaleVerzadigdeVetten, MaximaleKoolhydraten, MinimaleKoolhydraten, MaximaleSuikers, MaximaleEiwitten, MinimaleEiwitten, MaximaleZouten, MinimaleZouten)
+                  VALUES (@maximaleCalorieën, @minimaleCalorieën, @maximaleTotaleVetten, @minimaleTotaleVetten, @maximaleVerzadigdeVetten, @maximaleKoolhydraten, @minimaleKoolhydraten, @maximaleSuikers, @maximaleEiwitten, @minimaleEiwitten, @maximaleZouten, @minimaleZouten)";
 
             connection.Open();
             cmd = new SqlCommand(addUitkomst, connection);
 
-            cmd.Parameters.AddWithValue("@dto.maximaleCalorieën", dto.maximaleCalorieën);
-            cmd.Parameters.AddWithValue("@dto.minimaleCalorieën", dto.minimaleCalorieën);
-            cmd.Parameters.AddWithValue("@dto.maximaleTotaleVetten", dto.maximaleTotaleVetten);
-            cmd.Parameters.AddWithValue("@dto.minimaleTotaleVetten", dto.minimaleTotaleVetten);
-            cmd.Parameters.AddWithValue("@dto.maximaleVerzadigdeVetten", dto.maximaleVerzadigdeVetten);
-            cmd.Parameters.AddWithValue("@dto.maximaleKoolhydraten", dto.maximaleKoolhydraten);
-            cmd.Parameters.AddWithValue("@dto.minimaleKoolhydraten", dto.minimaleKoolhydraten);
-            cmd.Parameters.AddWithValue("@dto.maximaleSuikers", dto.maximaleSuikers);
-            cmd.Parameters.AddWithValue("@dto.maximaleEiwitten", dto.maximaleEiwitten);
-            cmd.Parameters.AddWithValue("@dto.minimaleEiwitten", dto.minimaleEiwitten);
-            cmd.Parameters.AddWithValue("@dto.maximaleZouten", dto.maximaleZouten);
-            cmd.Parameters.AddWithValue("@dto.minimaleZouten", dto.minimaleZouten);
+            cmd.Parameters.AddWithValue("@maximaleCalorieën", dto.maximaleCalorieën);
+            cmd.Parameters.AddWithValue("@minimaleCalorieën", dto.minimaleCalorieën);
+            cmd.Parameters.AddWithValue("@maximaleTotaleVetten", dto.maximaleTotaleVetten);
+            cmd.Parameters.AddWithValue("@minimaleTotaleVetten", dto.minimaleTotaleVetten);
+            cmd.Parameters.AddWithValue("@maximaleVerzadigdeVetten", dto.maximaleVerzadigdeVetten);
+            cmd.Parameters.AddWithValue("@maximaleKoolhydraten", dto.maximaleKoolhydraten);
+            cmd.Parameters.AddWithValue("@minimaleKoolhydraten", dto.minimaleKoolhydraten);
+            cmd.Parameters.AddWithValue("@maximaleSuikers", dto.maximaleSuikers);
+            cmd.Parameters.AddWithValue("@maximaleEiwitten", dto.maximaleEiwitten);
+            cmd.Parameters.AddWithValue("@minimaleEiwitten", dto.minimaleEiwitten);
+            cmd.Parameters.AddWithValue("@maximaleZouten", dto.maximaleZouten);
+            cmd.Parameters.AddWithValue("@minimaleZouten", dto.minimaleZouten);
 
             cmd.ExecuteNonQuery();
             connection.Close();

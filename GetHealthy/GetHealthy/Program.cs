@@ -16,6 +16,10 @@ namespace GetHealthy
 {
     public class Program
     {
+        static IInvoer iInvoer = new InvoerDAL();
+        static IUitkomst iUitkomst = new UitkomstDAL();
+        static IProduct iProduct = new ProductenDAL();
+
         public static GebruikerContainer gebruikerContainer = new GebruikerContainer();
         public static InvoerContainer invoerContainer = new InvoerContainer(iInvoer);
         public static UitkomstContainer uitkomstContainer = new UitkomstContainer(iUitkomst);
@@ -23,10 +27,6 @@ namespace GetHealthy
 
         public static BerekenController berekenController = new BerekenController(gebruikerContainer, uitkomstContainer, productContainer, invoerContainer);
         public static ProductController productController = new ProductController(productContainer);
-
-        static IInvoer iInvoer = new InvoerDAL();
-        static IUitkomst iUitkomst = new UitkomstDAL();
-        static IProduct iProduct = new ProductenDAL();
 
         public static void Main(string[] args)
         {

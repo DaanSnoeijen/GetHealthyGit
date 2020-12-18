@@ -9,7 +9,7 @@ using GetHealthy.DTO;
 
 namespace GetHealthy.Containers
 {
-    public class UitkomstContainer
+    public class UitkomstContainer : IUitkomstContainer
     {
         public List<Uitkomst> UitkomstList = new List<Uitkomst>();
 
@@ -18,6 +18,11 @@ namespace GetHealthy.Containers
         public UitkomstContainer(IUitkomst iUitkomst)
         {
             uitkomst = iUitkomst;
+        }
+
+        public UitkomstContainer()
+        {
+            IUitkomst uitkomst = new UitkomstDAL();
         }
 
         public void AddUitkomst()
