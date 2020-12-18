@@ -57,7 +57,8 @@ namespace GetHealthy.Controllers
                 Program.uitkomstContainer.UitkomstList[0].maximaleEiwitten,
                 Program.uitkomstContainer.UitkomstList[0].minimaleEiwitten,
                 Program.uitkomstContainer.UitkomstList[0].maximaleZouten,
-                Program.uitkomstContainer.UitkomstList[0].minimaleZouten);
+                Program.uitkomstContainer.UitkomstList[0].minimaleZouten,
+                Program.invoerContainer.InvoerList[0]);
 
             return View("Uitkomst", uitkomstViewModel);
         }

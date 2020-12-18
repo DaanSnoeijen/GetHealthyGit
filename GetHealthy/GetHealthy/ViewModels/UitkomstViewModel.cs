@@ -23,7 +23,7 @@ namespace GetHealthy.ViewModels
         public double maximaleZouten;
         public double minimaleZouten;
 
-        public Invoer invoer = Program.invoerContainer.InvoerList[0];
+        public Invoer invoer;
 
         public UitkomstViewModel(
             int MaximaleCalorieën,
@@ -39,7 +39,8 @@ namespace GetHealthy.ViewModels
             double MaximaleEiwitten,
             double MinimaleEiwitten,
             double MaximaleZouten,
-            double MinimaleZouten)
+            double MinimaleZouten,
+            Invoer Invoer)
         {
             maximaleCalorieën = MaximaleCalorieën;
             minimaleCalorieën = MinimaleCalorieën;
@@ -55,6 +56,7 @@ namespace GetHealthy.ViewModels
             minimaleEiwitten = MinimaleEiwitten;
             maximaleZouten = MaximaleZouten;
             minimaleZouten = MinimaleZouten;
+            invoer = Invoer;
         }
     }
 }
