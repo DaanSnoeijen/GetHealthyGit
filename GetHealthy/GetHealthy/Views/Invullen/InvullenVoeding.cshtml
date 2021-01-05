@@ -4,15 +4,18 @@
 <h2>Wat heeft u vandaag gegeten?</h2>
 <br />
 <form method="post" action="InvullenVoeding">
-    <input type="search" />
-    <br />
-    <br />
     @{
-        foreach (GetHealthy.Models.ProductViewModel item in Model.ListA)
+        foreach (GetHealthy.Models.ProductViewModel item in Model.ListA(Model.Page))
         {
             <input type="radio" id="@item.naam" name="Product" value="@item.naam">
             <label for="@item.naam">@item.naam</label>
+            <br />
         }
+
+        <input id="Pagina" name="Pagina" type="number" value="1" />
+        <label>Voer een pagina van 1 tot en met 10 in en klik op "Ga naar pagina".</label>
+        <br />
+        <input type="submit" value="Ga naar pagina" />
     }
     <br />
     <br />

@@ -21,7 +21,7 @@ namespace GetHealthy.Controllers
             Program.productController.ConvertToViewModel();
 
             InvullenVoedingViewModel invullenVoedingViewModel = new InvullenVoedingViewModel();
-            invullenVoedingViewModel.ListA = Program.productController.productList;
+            invullenVoedingViewModel.listA = Program.productController.productList;
             invullenVoedingViewModel.ListB = Program.productContainer.SelectedProducts;
 
             return View("InvullenVoeding", invullenVoedingViewModel);
@@ -105,8 +105,18 @@ namespace GetHealthy.Controllers
             }
 
             InvullenVoedingViewModel invullenVoedingViewModel = new InvullenVoedingViewModel();
-            invullenVoedingViewModel.ListA = productList;
+
+            if (Convert.ToInt32(HttpContext.Request.Form["Pagina"]) != null)
+            {
+                invullenVoedingViewModel.Page = Convert.ToInt32(HttpContext.Request.Form["Pagina"]);
+            }
+            invullenVoedingViewModel.listA = productList;
             invullenVoedingViewModel.ListB = Program.productContainer.SelectedProducts;
+
+            if (invullenVoedingViewModel.Page < 1 || invullenVoedingViewModel.Page > 10)
+            {
+                invullenVoedingViewModel.Page = 1;
+            }
 
             return View("InvullenVoeding", invullenVoedingViewModel);
         }
