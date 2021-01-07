@@ -62,8 +62,10 @@ namespace UnitTestGetHealthy
             //Assert
             catch (Exception ex)
             {
-                Assert.AreEqual(ex.Message, "Onjuiste invoer");
+                Assert.AreEqual("Onjuiste invoer", ex.Message);
             }
+
+            Assert.IsFalse(gebruikerContainer.GetGebruiker().activiteit);
 
             date = new DateTime(2019, 5, 11);
             gebruikerContainer.AddGebruiker(1, 300, 250, date.Date, 5, true, true);
@@ -78,8 +80,10 @@ namespace UnitTestGetHealthy
             //Assert
             catch (Exception ex)
             {
-                Assert.AreEqual(ex.Message, "Onjuiste invoer");
+                Assert.AreEqual("Onjuiste invoer", ex.Message);
             }
+
+            Assert.IsTrue(gebruikerContainer.GetGebruiker().activiteit);
         }
     }
 }

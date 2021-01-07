@@ -5,6 +5,7 @@ using System.Text;
 using GetHealthy;
 using GetHealthy.Containers;
 using GetHealthy.Interfaces;
+using GetHealthy.Models;
 
 namespace UnitTestGetHealthy
 {

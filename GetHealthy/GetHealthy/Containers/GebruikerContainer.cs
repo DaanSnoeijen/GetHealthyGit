@@ -14,6 +14,8 @@ namespace GetHealthy.Containers
         public void AddGebruiker(int geslacht, int gewicht, int lengte, DateTime geboortedatum, int sportPerWeek, bool werk, bool vegan)
         {
             Gebruiker g = new Gebruiker(geslacht, gewicht, lengte, geboortedatum, sportPerWeek, werk, vegan);
+
+            GebruikerList.Clear();
             GebruikerList.Add(g);
         }
 
