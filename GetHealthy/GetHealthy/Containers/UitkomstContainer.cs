@@ -11,7 +11,7 @@ namespace GetHealthy.Containers
 {
     public class UitkomstContainer : IUitkomstContainer
     {
-        public List<Uitkomst> UitkomstList = new List<Uitkomst>();
+        List<Uitkomst> uitkomstList = new List<Uitkomst>();
 
         IUitkomst uitkomst;
 
@@ -28,31 +28,36 @@ namespace GetHealthy.Containers
         public void AddUitkomst()
         {
             Uitkomst uitkomst = new Uitkomst();
-            UitkomstList.Clear();
-            UitkomstList.Add(uitkomst);
+            uitkomstList.Clear();
+            uitkomstList.Add(uitkomst);
         }
 
         public void AddToDatabase()
         {
             UitkomstDTO dto = new UitkomstDTO(
-                UitkomstList[0].maximaleCalorieën,
-                UitkomstList[0].minimaleCalorieën,
-                UitkomstList[0].maximaleTotaleVetten,
-                UitkomstList[0].minimaleTotaleVetten,
-                UitkomstList[0].maximaleVerzadigdeVetten,
-                UitkomstList[0].maximaleKoolhydraten,
-                UitkomstList[0].minimaleKoolhydraten,
-                UitkomstList[0].maximaleSuikers,
-                UitkomstList[0].maximaleEiwitten,
-                UitkomstList[0].minimaleEiwitten,
-                UitkomstList[0].maximaleZouten,
-                UitkomstList[0].minimaleZouten);
+                uitkomstList[0].maximaleCalorieën,
+                uitkomstList[0].minimaleCalorieën,
+                uitkomstList[0].maximaleTotaleVetten,
+                uitkomstList[0].minimaleTotaleVetten,
+                uitkomstList[0].maximaleVerzadigdeVetten,
+                uitkomstList[0].maximaleKoolhydraten,
+                uitkomstList[0].minimaleKoolhydraten,
+                uitkomstList[0].maximaleSuikers,
+                uitkomstList[0].maximaleEiwitten,
+                uitkomstList[0].minimaleEiwitten,
+                uitkomstList[0].maximaleZouten,
+                uitkomstList[0].minimaleZouten);
             uitkomst.storeUitkomst(dto);
         }
 
         public Uitkomst GetUitkomst()
         {
-            return UitkomstList[0];
+            return uitkomstList[0];
+        }
+
+        public List<Uitkomst> UitkomstList()
+        {
+            return uitkomstList;
         }
     }
 }

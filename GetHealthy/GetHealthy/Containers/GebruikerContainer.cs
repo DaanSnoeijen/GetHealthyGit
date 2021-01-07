@@ -9,7 +9,7 @@ namespace GetHealthy.Containers
 {
     public class GebruikerContainer : IGebruikerContainer
     {
-        public List<Gebruiker> GebruikerList = new List<Gebruiker>();
+        List<Gebruiker> GebruikerList = new List<Gebruiker>();
 
         public void AddGebruiker(int geslacht, int gewicht, int lengte, DateTime geboortedatum, int sportPerWeek, bool werk, bool vegan)
         {

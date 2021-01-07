@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using GetHealthy;
 using GetHealthy.Containers;
+using GetHealthy.Interfaces;
 
 namespace UnitTestGetHealthy
 {
@@ -13,11 +14,14 @@ namespace UnitTestGetHealthy
         [TestMethod]
         public void TestAddInvoer()
         {
+            //Arrange
+            InvoerContainer invoerContainer = new InvoerContainer();
+
             //Act
-            Program.invoerContainer.AddInvoer(2000, 50, 10, 50, 15, 35, 2);
+            invoerContainer.AddInvoer(2000, 50, 10, 50, 15, 35, 2);
 
             //Assert
-            Assert.IsTrue(Program.invoerContainer.InvoerList.Count == 1);
+            Assert.IsTrue(invoerContainer.InvoerList().Count == 1);
         }
     }
 }

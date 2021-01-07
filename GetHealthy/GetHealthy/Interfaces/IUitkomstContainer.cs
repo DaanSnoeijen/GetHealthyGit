@@ -13,5 +13,7 @@ namespace GetHealthy.Interfaces
         void AddToDatabase();
 
         Uitkomst GetUitkomst();
+
+        List<Uitkomst> UitkomstList();
     }
 }

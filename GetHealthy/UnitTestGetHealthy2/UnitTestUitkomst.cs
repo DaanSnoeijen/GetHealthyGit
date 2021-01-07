@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using GetHealthy;
+using GetHealthy.Interfaces;
 
 namespace UnitTestGetHealthy
 {
@@ -14,20 +15,20 @@ namespace UnitTestGetHealthy
         public void TestAddUitkomst()
         {
             //Arrange
-            UitkomstContainer uitkomstContainer = Program.uitkomstContainer;
+            UitkomstContainer uitkomstContainer = new UitkomstContainer();
 
             //Act
             uitkomstContainer.AddUitkomst();
 
             //Assert
-            Assert.IsTrue(uitkomstContainer.UitkomstList.Count == 1);
+            Assert.IsTrue(uitkomstContainer.UitkomstList().Count == 1);
         }
 
         [TestMethod]
         public void TestUitkomstDatabase()
         {
             //Arrange
-            UitkomstContainer uitkomstContainer = Program.uitkomstContainer;
+            UitkomstContainer uitkomstContainer = new UitkomstContainer();
 
             uitkomstContainer.AddUitkomst();
 

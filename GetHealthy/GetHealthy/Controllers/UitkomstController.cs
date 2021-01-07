@@ -13,7 +13,7 @@ namespace GetHealthy.Controllers
         public IActionResult Uitkomst()
         {
             //Dummy gebruiker
-            if (Program.gebruikerContainer.GebruikerList.Count == 0)
+            if (Program.gebruikerContainer.GetGebruiker() == null)
             {
                 DateTime date = new DateTime(2002, 9, 1);
                 Program.gebruikerContainer.AddGebruiker(1, 65, 190, date.Date, 2, true, false);
@@ -44,21 +44,21 @@ namespace GetHealthy.Controllers
             Program.berekenController.Bereken();
 
             UitkomstViewModel uitkomstViewModel = new UitkomstViewModel(
-                Program.uitkomstContainer.UitkomstList[0].maximaleCalorieën,
-                Program.uitkomstContainer.UitkomstList[0].minimaleCalorieën,
-                Program.uitkomstContainer.UitkomstList[0].maximaleTotaleVetten,
-                Program.uitkomstContainer.UitkomstList[0].minimaleTotaleVetten,
-                Program.uitkomstContainer.UitkomstList[0].maximaleVerzadigdeVetten,
-                Program.uitkomstContainer.UitkomstList[0].minimaleVerzadigdeVetten,
-                Program.uitkomstContainer.UitkomstList[0].maximaleKoolhydraten,
-                Program.uitkomstContainer.UitkomstList[0].minimaleKoolhydraten,
-                Program.uitkomstContainer.UitkomstList[0].maximaleSuikers,
-                Program.uitkomstContainer.UitkomstList[0].minimaleSuikers,
-                Program.uitkomstContainer.UitkomstList[0].maximaleEiwitten,
-                Program.uitkomstContainer.UitkomstList[0].minimaleEiwitten,
-                Program.uitkomstContainer.UitkomstList[0].maximaleZouten,
-                Program.uitkomstContainer.UitkomstList[0].minimaleZouten,
-                Program.invoerContainer.InvoerList[0]);
+                Program.uitkomstContainer.UitkomstList()[0].maximaleCalorieën,
+                Program.uitkomstContainer.UitkomstList()[0].minimaleCalorieën,
+                Program.uitkomstContainer.UitkomstList()[0].maximaleTotaleVetten,
+                Program.uitkomstContainer.UitkomstList()[0].minimaleTotaleVetten,
+                Program.uitkomstContainer.UitkomstList()[0].maximaleVerzadigdeVetten,
+                Program.uitkomstContainer.UitkomstList()[0].minimaleVerzadigdeVetten,
+                Program.uitkomstContainer.UitkomstList()[0].maximaleKoolhydraten,
+                Program.uitkomstContainer.UitkomstList()[0].minimaleKoolhydraten,
+                Program.uitkomstContainer.UitkomstList()[0].maximaleSuikers,
+                Program.uitkomstContainer.UitkomstList()[0].minimaleSuikers,
+                Program.uitkomstContainer.UitkomstList()[0].maximaleEiwitten,
+                Program.uitkomstContainer.UitkomstList()[0].minimaleEiwitten,
+                Program.uitkomstContainer.UitkomstList()[0].maximaleZouten,
+                Program.uitkomstContainer.UitkomstList()[0].minimaleZouten,
+                Program.invoerContainer.InvoerList()[0]);
 
             return View("Uitkomst", uitkomstViewModel);
         }
