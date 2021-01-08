@@ -12,13 +12,8 @@ namespace GetHealthy.Controllers
     {
         public IActionResult Uitkomst()
         {
-            //Dummy gebruiker
-            if (Program.gebruikerContainer.GetGebruiker() == null)
-            {
-                DateTime date = new DateTime(2002, 9, 1);
-                Program.gebruikerContainer.AddGebruiker(1, 65, 190, date.Date, 2, true, false);
-            }
-            //Einde dummy gebruiker
+            DateTime date = new DateTime(2002, 9, 1);
+            Program.gebruikerContainer.AddGebruiker(1, 65, 190, date.Date, 2, true, false);
 
             double calorieën = 0;
             double totaleVetten = 0;

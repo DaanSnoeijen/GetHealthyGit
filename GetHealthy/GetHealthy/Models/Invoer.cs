@@ -7,13 +7,13 @@ namespace GetHealthy.Models
 {
     public class Invoer
     {
-        public double calorieën;
-        public double totaleVetten;
-        public double verzadigdeVetten;
-        public double koolhydraten;
-        public double suikers;
-        public double eiwitten;
-        public double zouten;
+        public double calorieën { get; private set; }
+        public double totaleVetten { get; private set; }
+        public double verzadigdeVetten { get; private set; }
+        public double koolhydraten { get; private set; }
+        public double suikers { get; private set; }
+        public double eiwitten { get; private set; }
+        public double zouten { get; private set; }
 
         public Invoer(double Calorieën, double TotaleVetten, double VerzadigdeVetten, double Koolhydraten, double Suikers, double Eiwitten, double Zouten)
         {

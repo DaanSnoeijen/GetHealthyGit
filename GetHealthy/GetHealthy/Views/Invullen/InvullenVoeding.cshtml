@@ -4,6 +4,10 @@
 <h2>Wat heeft u vandaag gegeten?</h2>
 <br />
 <form method="post" action="InvullenVoeding">
+    <input type="search" name="ProductSearch" />
+    <input type="submit" value="Search" />
+    <br />
+    <br />
     @{
         foreach (GetHealthy.Models.ProductViewModel item in Model.ListA(Model.Page))
         {
@@ -29,7 +33,7 @@
     <label for="hoeveelheid">Hoeveel heeft u van dit product op?</label>
     <br />
     <br />
-    <input type="submit" value="Toevoegen"/>
+    <input type="submit" value="Toevoegen" />
     <br />
     <br />
 </form>

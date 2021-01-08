@@ -42,6 +42,8 @@ namespace GetHealthy.Controllers
             string productChecked = HttpContext.Request.Form["Product"];
             string hoeveelheidProduct = HttpContext.Request.Form["Hoeveelheid"];
 
+            InvullenVoedingViewModel invullenVoedingViewModel = new InvullenVoedingViewModel();
+
             foreach (ProductViewModel product in productList)
             {
                 if (product.naam == productChecked)
@@ -101,22 +103,51 @@ namespace GetHealthy.Controllers
                     }
 
                     Program.productContainer.SelectedProducts.Add(selectedProduct);
+                    invullenVoedingViewModel.listA = productList;
                 }
             }
-
-            InvullenVoedingViewModel invullenVoedingViewModel = new InvullenVoedingViewModel();
-
-            if (Convert.ToInt32(HttpContext.Request.Form["Pagina"]) != null)
-            {
-                invullenVoedingViewModel.Page = Convert.ToInt32(HttpContext.Request.Form["Pagina"]);
-            }
-            invullenVoedingViewModel.listA = productList;
-            invullenVoedingViewModel.ListB = Program.productContainer.SelectedProducts;
 
             if (invullenVoedingViewModel.Page < 1 || invullenVoedingViewModel.Page > 10)
             {
                 invullenVoedingViewModel.Page = 1;
             }
+
+            if (Convert.ToString(HttpContext.Request.Form["ProductSearch"]) != "")
+            {
+                string productSearch = HttpContext.Request.Form["ProductSearch"];
+                List<ProductViewModel> productSearchList = new List<ProductViewModel>();
+
+                foreach (Product product in Program.productContainer.ProductList)
+                {
+                    if (product.naam == productSearch)
+                    {
+                        ProductViewModel productVM = new ProductViewModel(
+                            product.naam,
+                            product.calorieën,
+                            product.totaleVetten,
+                            product.verzadigdeVetten,
+                            product.koolhydraten,
+                            product.suikers,
+                            product.eiwitten,
+                            product.zouten);
+                        productSearchList.Add(productVM);
+
+                        invullenVoedingViewModel.listA = productSearchList;
+                    }
+                }
+
+                invullenVoedingViewModel.Page = 0;
+            }
+            else if (Convert.ToString(HttpContext.Request.Form["Pagina"]) != "")
+            {
+                invullenVoedingViewModel.Page = Convert.ToInt32(HttpContext.Request.Form["Pagina"]);
+                invullenVoedingViewModel.listA = productList;
+            }
+            else
+            {
+                invullenVoedingViewModel.listA = productList;
+            }
+            invullenVoedingViewModel.ListB = Program.productContainer.SelectedProducts;
 
             return View("InvullenVoeding", invullenVoedingViewModel);
         }

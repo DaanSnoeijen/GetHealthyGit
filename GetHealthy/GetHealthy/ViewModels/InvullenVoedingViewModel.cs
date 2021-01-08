@@ -89,6 +89,13 @@ namespace GetHealthy.ViewModels
                     list.Add(listA[i]);
                 }
             }
+            else
+            {
+                foreach (ProductViewModel pvm in listA)
+                {
+                    list.Add(pvm);
+                }
+            }
 
             return list;
         }

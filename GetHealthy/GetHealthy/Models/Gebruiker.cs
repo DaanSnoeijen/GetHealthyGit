@@ -7,16 +7,16 @@ namespace GetHealthy.Models
 {
     public class Gebruiker
     {
-        public int geslacht;
-        public int gewicht;
-        public double lengte;
-        public DateTime geboortedatum;
-        public int leeftijd;
-        public int sportPerWeek;
-        public bool werk;
-        public bool vegan;
-        public bool activiteit = false;
-        public double BMI;
+        public int geslacht { get; private set; }
+        public int gewicht { get; private set; }
+        public double lengte { get; private set; }
+        public DateTime geboortedatum { get; private set; }
+        public int leeftijd { get; set; }
+        public int sportPerWeek { get; private set; }
+        public bool werk { get; private set; }
+        public bool vegan { get; private set; }
+        public bool activiteit { get; set; }
+        public double BMI { get; set; }
 
         public Gebruiker(int Geslacht, int Gewicht, double Lengte, DateTime Geboortedatum, int SportPerWeek, bool Werk, bool Vegan)
         {
@@ -27,6 +27,7 @@ namespace GetHealthy.Models
             sportPerWeek = SportPerWeek;
             werk = Werk;
             vegan = Vegan;
+            activiteit = false;
         }
     }
 }
