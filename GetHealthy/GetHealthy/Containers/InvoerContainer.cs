@@ -11,7 +11,7 @@ namespace GetHealthy.Containers
 {
     public class InvoerContainer : IInvoerContainer
     {
-        List<Invoer> invoerList = new List<Invoer>();
+        Invoer invoer;
 
         IInvoer iInvoer;
 
@@ -27,18 +27,17 @@ namespace GetHealthy.Containers
 
         public void AddInvoer(double calorieën, double totaleVetten, double verzadigdeVetten, double koolhydraten, double suikers, double eiwitten, double zouten)
         {
-            Invoer invoer = new Invoer(calorieën, totaleVetten, verzadigdeVetten, koolhydraten, suikers, eiwitten, zouten);
+            Invoer Invoer = new Invoer(calorieën, totaleVetten, verzadigdeVetten, koolhydraten, suikers, eiwitten, zouten);
             InvoerDTO invoerDTO = new InvoerDTO(calorieën, totaleVetten, verzadigdeVetten, koolhydraten, suikers, eiwitten, zouten);
 
-            invoerList.Clear();
-            invoerList.Add(invoer);
+            invoer = Invoer;
 
             iInvoer.StoreInvoer(invoerDTO);
         }
 
-        public List<Invoer> InvoerList()
+        public Invoer Invoer()
         {
-            return invoerList;
+            return invoer;
         }
     }
 }

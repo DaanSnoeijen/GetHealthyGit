@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GetHealthy.DAL;
+using GetHealthy.DTO;
 using GetHealthy.Interfaces;
 using GetHealthy.Models;
 
@@ -9,19 +11,46 @@ namespace GetHealthy.Containers
 {
     public class GebruikerContainer : IGebruikerContainer
     {
-        List<Gebruiker> GebruikerList = new List<Gebruiker>();
+        Gebruiker gebruiker;
+
+        IGebruiker dal;
+
+        public GebruikerContainer(IGebruiker DAL)
+        {
+            dal = DAL;
+        }
+
+        public GebruikerContainer()
+        {
+            dal = new GebruikerDAL();
+        }
 
         public void AddGebruiker(int geslacht, int gewicht, int lengte, DateTime geboortedatum, int sportPerWeek, bool werk, bool vegan)
         {
-            Gebruiker g = new Gebruiker(geslacht, gewicht, lengte, geboortedatum, sportPerWeek, werk, vegan);
+            gebruiker = new Gebruiker(geslacht, gewicht, lengte, geboortedatum, sportPerWeek, werk, vegan);
 
-            GebruikerList.Clear();
-            GebruikerList.Add(g);
+            GebruikerDTO dto = new GebruikerDTO(
+                    gebruiker.geslacht,
+                    gebruiker.gewicht,
+                    gebruiker.lengte,
+                    gebruiker.geboortedatum,
+                    gebruiker.sportPerWeek,
+                    gebruiker.werk,
+                    gebruiker.vegan);
+
+            dal.StoreGebruiker(dto);
         }
 
         public Gebruiker GetGebruiker()
         {
-            return GebruikerList[0];
+            try
+            {
+                return gebruiker;
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }

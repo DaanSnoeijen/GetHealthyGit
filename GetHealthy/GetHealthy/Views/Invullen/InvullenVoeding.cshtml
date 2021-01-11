@@ -9,6 +9,11 @@
     <br />
     <br />
     @{
+        if (Program.gebruikerContainer.GetGebruiker() == null)
+        {
+            Url.Action("InvullenPersoonlijk", "Invullen");
+        }
+
         foreach (GetHealthy.Models.ProductViewModel item in Model.ListA(Model.Page))
         {
             <input type="radio" id="@item.naam" name="Product" value="@item.naam">

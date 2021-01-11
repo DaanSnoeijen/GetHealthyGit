@@ -22,7 +22,7 @@ namespace UnitTestGetHealthy
             invoerContainer.AddInvoer(2000, 50, 10, 50, 15, 35, 2);
 
             //Assert
-            Assert.IsTrue(invoerContainer.InvoerList().Count == 1);
+            Assert.IsTrue(invoerContainer.Invoer() != null);
         }
     }
 }

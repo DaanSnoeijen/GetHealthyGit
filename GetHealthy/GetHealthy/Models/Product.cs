@@ -24,17 +24,5 @@ namespace GetHealthy.Controllers
             eiwitten = Eiwitten;
             zouten = Zouten;
         }
-
-        public override string ToString()
-        {
-            return naam + ", calorieën: " +
-                Convert.ToString(calorieën) + ", totale vetten: " +
-                Convert.ToString(totaleVetten) + ", gemiddelde vetten: " +
-                Convert.ToString(verzadigdeVetten) + ", koolhydraten: " +
-                Convert.ToString(koolhydraten) + ", suikers: " +
-                Convert.ToString(suikers) + ", eiwitten: " +
-                Convert.ToString(eiwitten) + ", zouten: " +
-                Convert.ToString(zouten) + ", hoeveelheid: ";
-        }
     }
 }

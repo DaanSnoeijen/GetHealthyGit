@@ -58,18 +58,9 @@ namespace GetHealthy.Controllers
         //BMI bepaald of persoon moet afvallen of aankomen
         private void BerekenBMI()
         {
-            if (gc.GetGebruiker().gewicht > 30 && gc.GetGebruiker().gewicht < 200 && 
-                gc.GetGebruiker().leeftijd > 10 && gc.GetGebruiker().leeftijd < 100 && 
-                gc.GetGebruiker().lengte > 50 && gc.GetGebruiker().lengte < 220)
-            {
-                double meterLengte = gc.GetGebruiker().lengte / 100 * 2;
+            double meterLengte = gc.GetGebruiker().lengte / 100 * 2;
 
-                gc.GetGebruiker().BMI = gc.GetGebruiker().gewicht / meterLengte;
-            }
-            else
-            {
-                throw new Exception("Onjuiste invoer");
-            }
+            gc.GetGebruiker().BMI = gc.GetGebruiker().gewicht / meterLengte;
         }
 
         private void BerekenCalorieën()

@@ -12,9 +12,6 @@ namespace GetHealthy.Controllers
     {
         public IActionResult Uitkomst()
         {
-            DateTime date = new DateTime(2002, 9, 1);
-            Program.gebruikerContainer.AddGebruiker(1, 65, 190, date.Date, 2, true, false);
-
             double calorieën = 0;
             double totaleVetten = 0;
             double verzadigdeVetten = 0;
@@ -53,7 +50,7 @@ namespace GetHealthy.Controllers
                 Program.uitkomstContainer.UitkomstList()[0].minimaleEiwitten,
                 Program.uitkomstContainer.UitkomstList()[0].maximaleZouten,
                 Program.uitkomstContainer.UitkomstList()[0].minimaleZouten,
-                Program.invoerContainer.InvoerList()[0]);
+                Program.invoerContainer.Invoer());
 
             return View("Uitkomst", uitkomstViewModel);
         }

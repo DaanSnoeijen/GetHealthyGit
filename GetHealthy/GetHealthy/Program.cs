@@ -19,8 +19,9 @@ namespace GetHealthy
         static IInvoer iInvoer = new InvoerDAL();
         static IUitkomst iUitkomst = new UitkomstDAL();
         static IProduct iProduct = new ProductenDAL();
+        static IGebruiker iGebruiker = new GebruikerDAL();
 
-        public static GebruikerContainer gebruikerContainer = new GebruikerContainer();
+        public static GebruikerContainer gebruikerContainer = new GebruikerContainer(iGebruiker);
         public static InvoerContainer invoerContainer = new InvoerContainer(iInvoer);
         public static UitkomstContainer uitkomstContainer = new UitkomstContainer(iUitkomst);
         public static ProductContainer productContainer = new ProductContainer(iProduct);

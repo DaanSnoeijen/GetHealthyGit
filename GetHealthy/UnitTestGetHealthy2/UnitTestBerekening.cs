@@ -57,12 +57,12 @@ namespace UnitTestGetHealthy
             {
                 berekenController.Bereken();
 
+                //Assert
                 Assert.Fail();
             }
-            //Assert
-            catch (Exception ex)
+            catch
             {
-                Assert.AreEqual("Onjuiste invoer", ex.Message);
+                
             }
 
             Assert.IsFalse(gebruikerContainer.GetGebruiker().activiteit);
@@ -75,12 +75,12 @@ namespace UnitTestGetHealthy
             {
                 berekenController.Bereken();
 
+                //Assert
                 Assert.Fail();
             }
-            //Assert
-            catch (Exception ex)
+            catch
             {
-                Assert.AreEqual("Onjuiste invoer", ex.Message);
+                
             }
 
             Assert.IsTrue(gebruikerContainer.GetGebruiker().activiteit);

@@ -5,43 +5,53 @@
 <br />
 <h5>Wat is uw geslacht?</h5>
 <br />
-<form>
-    <input type="radio" name="geslacht" value="1" /> Man
-    <input type="radio" name="geslacht" value="0" /> Vrouw
-    <input type="radio" name="geslacht" value="0" /> Overig
+<form method="post">
+    <input type="radio" name="geslacht" id="geslacht" value="1" /> Man
+    <input type="radio" name="geslacht" id="geslacht" value="0" /> Vrouw
+    <input type="radio" name="geslacht" id="geslacht" value="0" /> Overig
     <br />
     <br />
     <h5>Wat is uw geboortedatum?</h5>
     <br />
-    <input type="date" name="geboortedatum" />
+    <input type="date" name="geboortedatum" id="geboortedatum" />
     <br />
     <br />
     <h5>Hoe lang bent u?</h5>
     <br />
-    <input type="number" name="lengte" /> in centimeter
+    <input type="number" name="lengte" id="lengte" /> in centimeter
     <br />
     <br />
     <h5>Wat is uw gewicht?</h5>
     <br />
-    <input type="number" name="gewicht" /> in kilogram
+    <input type="number" name="gewicht" id="gewicht" /> in kilogram
     <br />
     <br />
     <h5>Hoeveel uur sport u per week?</h5>
     <br />
-    <input type="number" name="sportPerWeek" /> uur per week
+    <input type="number" name="sportPerWeek" id="sportPerWeek" /> uur per week
     <br />
     <br />
     <h5>Werkt u met uw hoofd of met uw spieren?</h5>
     <br />
-    <input type="radio" name="werk" value="1" /> Fysiek
-    <input type="radio" name="werk" value="0" /> Mentaal
+    <input type="radio" name="werk" id="werk" value="1" /> Fysiek
+    <input type="radio" name="werk" id="werk" value="0" /> Mentaal
+    <input type="radio" name="werk" id="werk" value="1" /> Allebei
+    <input type="radio" name="werk" id="werk" value="0" /> Geen van beide
     <br />
     <br />
     <h5>Bent u veganist? </h5>
     <br />
-    <input type="radio" name="vegan" value="1" /> Ja
-    <input type="radio" name="vegan" value="0" /> Nee
+    <input type="radio" name="vegan" id="vegan" value="1" /> Ja
+    <input type="radio" name="vegan" id="vegan" value="0" /> Nee
     <br />
     <br />
-    <input type="button" value="Volgende" onclick="window.location.href = '@Url.Action("InvullenVoedingPagina", "Invullen")';" />
+    <input type="submit" asp-controller="Invullen" asp-action="InvullenPersoonlijkConfirm" asp-route-id="" value="Voeg gebruiker toe" />
+    <br />
+    <br />
+    @{
+        if (Model == true)
+        {
+            <h5>Voer alstublieft reële waardes in in alle velden</h5>
+        }
+    }
 </form>
