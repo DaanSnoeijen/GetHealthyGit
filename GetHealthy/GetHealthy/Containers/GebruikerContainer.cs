@@ -13,32 +13,38 @@ namespace GetHealthy.Containers
     {
         Gebruiker gebruiker;
 
-        IGebruiker dal;
+        IGebruiker gebruikerDal;
 
         public GebruikerContainer(IGebruiker DAL)
         {
-            dal = DAL;
+            gebruikerDal = DAL;
         }
 
         public GebruikerContainer()
         {
-            dal = new GebruikerDAL();
+            gebruikerDal = new GebruikerDAL();
         }
 
         public void AddGebruiker(int geslacht, int gewicht, int lengte, DateTime geboortedatum, int sportPerWeek, bool werk, bool vegan)
         {
-            gebruiker = new Gebruiker(geslacht, gewicht, lengte, geboortedatum, sportPerWeek, werk, vegan);
+            if (geboortedatum.Year > 1921 && geboortedatum.Year < 2020 &&
+                gewicht > 15 && gewicht < 200 &&
+                lengte > 30 && lengte < 220 &&
+                sportPerWeek < 50)
+            {
+                gebruiker = new Gebruiker(geslacht, gewicht, lengte, geboortedatum, sportPerWeek, werk, vegan);
 
-            GebruikerDTO dto = new GebruikerDTO(
-                    gebruiker.geslacht,
-                    gebruiker.gewicht,
-                    gebruiker.lengte,
-                    gebruiker.geboortedatum,
-                    gebruiker.sportPerWeek,
-                    gebruiker.werk,
-                    gebruiker.vegan);
+                GebruikerDTO dto = new GebruikerDTO(
+                        gebruiker.geslacht,
+                        gebruiker.gewicht,
+                        gebruiker.lengte,
+                        gebruiker.geboortedatum,
+                        gebruiker.sportPerWeek,
+                        gebruiker.werk,
+                        gebruiker.vegan);
 
-            dal.StoreGebruiker(dto);
+                gebruikerDal.StoreGebruiker(dto);
+            }
         }
 
         public Gebruiker GetGebruiker()

@@ -21,37 +21,40 @@ namespace GetHealthy.Controllers
         {
             bool passGebruiker;
 
-            try
+            int geslacht = Convert.ToInt32(Request.Form["geslacht"]);
+            DateTime geboortedatum = Convert.ToDateTime(Request.Form["geboortedatum"]);
+            int lengte = Convert.ToInt32(Request.Form["lengte"]);
+            int gewicht = Convert.ToInt32(Request.Form["gewicht"]);
+            int sportPerWeek = Convert.ToInt32(Request.Form["sportPerWeek"]);
+            bool werk;
+            if (Convert.ToInt32(Request.Form["werk"]) == 0)
             {
-                int geslacht = Convert.ToInt32(Request.Form["geslacht"]);
-                DateTime geboortedatum = Convert.ToDateTime(Request.Form["geboortedatum"]);
-                int lengte = Convert.ToInt32(Request.Form["lengte"]);
-                int gewicht = Convert.ToInt32(Request.Form["gewicht"]);
-                int sportPerWeek = Convert.ToInt32(Request.Form["sportPerWeek"]);
-                bool werk;
-                if (Convert.ToInt32(Request.Form["werk"]) == 0)
-                {
-                    werk = false;
-                }
-                else
-                {
-                    werk = true;
-                }
-                bool vegan;
-                if (Convert.ToInt32(Request.Form["vegan"]) == 0)
-                {
-                    vegan = false;
-                }
-                else
-                {
-                    vegan = true;
-                }
+                werk = false;
+            }
+            else
+            {
+                werk = true;
+            }
+            bool vegan;
+            if (Convert.ToInt32(Request.Form["vegan"]) == 0)
+            {
+                vegan = false;
+            }
+            else
+            {
+                vegan = true;
+            }
 
+            if (geboortedatum.Year > 1921 && geboortedatum.Year < 2020 &&
+                gewicht > 15 && gewicht < 200 &&
+                lengte > 30 && lengte < 220 &&
+                sportPerWeek < 50)
+            {
                 Program.gebruikerContainer.AddGebruiker(geslacht, gewicht, lengte, geboortedatum, sportPerWeek, werk, vegan);
 
                 return RedirectToAction("InvullenVoedingPagina");
             }
-            catch
+            else
             {
                 passGebruiker = true;
 
